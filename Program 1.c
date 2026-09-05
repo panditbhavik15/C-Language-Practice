@@ -1,0 +1,51 @@
+//Write code for Hello World using C Language
+// main code
+ 
+#include <stdio.h>
+
+int main()
+{
+    printf("Hello, World!");
+
+    return 0;
+}
+
+
+/*Explanation
+
+1. #include <stdio.h>
+
+This includes the standard input/output library.
+
+It gives us functions such as:
+
+printf() → display something on the screen
+scanf() → take input from the user
+
+2. int main()
+
+main() is the starting point of a C program.
+
+When you run the program, execution starts from main().
+
+int means the function will return an integer value.
+
+3. { }
+
+The curly brackets define the body of the main() function.
+
+Everything inside { } belongs to main().
+
+4. printf("Hello, World!");
+
+printf() displays text on the screen.
+
+Output:
+
+Hello, World!
+
+The ; means the statement is finished.
+
+5. return 0;
+
+This tells the computer that the program finished successfully.*/
