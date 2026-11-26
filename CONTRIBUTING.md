@@ -60,7 +60,8 @@ Thanks for wanting to improve **C Language Practice**! 🎉
    Every file must print `OK`. If your program creates a file on disk, add that
    file name to `.gitignore`.
 
-6. Record its expected output so CI can check it:
+6. Record its expected output so CI can check it (`bash run-tests.sh --update`, or
+   `run-tests.cmd --update` on Windows):
 
    ```bash
    bash run-tests.sh --update
@@ -77,7 +78,7 @@ expect, and commit it with the program.
 - [ ] The program compiles with `-Wall -Wextra` and no warnings
 - [ ] An `Explanation` block is included at the bottom of the file
 - [ ] The sample output in the explanation matches the real output
-- [ ] A test case exists in `tests/cases/NN.test` and `bash run-tests.sh` passes
+- [ ] A test case exists in `tests/cases/NN.test` and `bash run-tests.sh` (or `run-tests.cmd`) passes
 - [ ] The README program index has been updated
 
 ## Code of conduct

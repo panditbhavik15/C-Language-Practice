@@ -239,11 +239,21 @@ Compile each program, feed it the recorded input and compare what it prints:
 bash run-tests.sh
 ```
 
+**Windows (Command Prompt or PowerShell)**
+
+```bat
+run-tests.cmd
+```
+
+`run-tests.cmd` is the same check with no Git Bash needed: it compiles each program
+with MinGW's `gcc` and prints the same `PASS` / `FAIL` / `SKIP` lines.
+
 The script prints `PASS` or `FAIL` for every program, shows a diff when the output
 changed, and exits non-zero if anything fails. `SKIP` means the program has no
 case file yet.
 
-When you change a program on purpose, re-record its output and review the result:
+When you change a program on purpose, re-record its output and review the result
+(on Windows use `run-tests.cmd --update`):
 
 ```bash
 bash run-tests.sh --update
