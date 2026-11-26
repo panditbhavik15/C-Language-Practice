@@ -11,7 +11,7 @@
 [![Last Commit](https://img.shields.io/github/last-commit/panditbhavik15/C-Language-Practice)](https://github.com/panditbhavik15/C-Language-Practice/commits/main)
 [![Stars](https://img.shields.io/github/stars/panditbhavik15/C-Language-Practice?style=social)](https://github.com/panditbhavik15/C-Language-Practice/stargazers)
 
-[Why This Repo](#-why-this-repository) • [Program Index](#-program-index) • [Quick Start](#-quick-start) • [How to Run](#️-how-to-run-a-single-program) • [Contributing](#-contributing) • [Author](#-author)
+[Why This Repo](#-why-this-repository) • [Program Index](#-program-index) • [Programs Page](docs/index.html) • [Quick Start](#-quick-start) • [How to Run](#️-how-to-run-a-single-program) • [Contributing](#-contributing) • [Author](#-author)
 
 </div>
 
@@ -30,6 +30,8 @@ This repository is a sequential, beginner-friendly collection of C programs writ
 3. A plain-English `Explanation` block at the bottom describing each step
 
 No frameworks, no build system to learn, no setup headaches. Just `gcc` and a terminal.
+
+Every program is also on one page: **[docs/index.html](docs/index.html)** lists them in the same order as the index below, each with the input it reads, the exact output it prints and its source. It is a single self-contained HTML file, so it opens straight from disk — no server. (If you want it on the web, point GitHub Pages at this repository's `main` branch and `/docs` folder.)
 
 > **Learn → Practice → Build → Improve 🚀**
 

@@ -1,0 +1,4929 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>C Language Practice — programs with input and output</title>
+<style>
+:root{color-scheme:light}
+*{box-sizing:border-box}
+body{margin:0;background:#fff;color:#1f2328;
+  font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.page{max-width:840px;margin:0 auto;padding:48px 24px 96px}
+header{padding-bottom:24px;border-bottom:1px solid #d8dee4}
+h1{margin:0 0 6px;font-size:32px;line-height:1.2;letter-spacing:-.01em}
+.meta{margin:0 0 14px;color:#57606a;font-size:14px}
+.intro{margin:0;color:#24292f}
+.intro code,.meta code,footer code{background:#f6f8fa;border:1px solid #e6e9ed;
+  border-radius:4px;padding:1px 4px;font-size:13px;
+  font-family:ui-monospace,SFMono-Regular,Consolas,"Liberation Mono",monospace}
+.toc{margin:34px 0 0;padding-bottom:30px;border-bottom:1px solid #d8dee4}
+.toc h2{margin:0 0 10px;font-size:15px;font-weight:600}
+.toc ol{margin:0;padding-left:24px;columns:2;column-gap:40px;
+  font-size:14.5px;line-height:1.95}
+.toc a{color:#0969da;text-decoration:none}
+.toc a:hover{text-decoration:underline}
+section{padding:36px 0;border-bottom:1px solid #d8dee4}
+section:last-of-type{border-bottom:0}
+section h2{margin:0 0 2px;font-size:19px;font-weight:600;line-height:1.35}
+section h2 .n{color:#8c959f;font-weight:400;margin-right:8px;
+  font-variant-numeric:tabular-nums}
+.fname{margin:0 0 4px;color:#57606a;font-size:13px;
+  font-family:ui-monospace,SFMono-Regular,Consolas,"Liberation Mono",monospace}
+.label{margin:18px 0 6px;font-size:13.5px;font-weight:600;color:#24292f}
+pre{margin:0;padding:12px 14px;background:#f6f8fa;border:1px solid #d0d7de;
+  border-radius:6px;font:13px/1.55 ui-monospace,SFMono-Regular,Consolas,
+  "Liberation Mono",monospace;white-space:pre-wrap;word-break:break-word;tab-size:4}
+pre.src{margin-top:10px;white-space:pre;overflow:auto}
+.none{margin:0;color:#6e7781;font-size:14px;font-style:italic}
+details{margin-top:20px}
+summary{cursor:pointer;color:#0969da;font-size:14px;list-style-position:outside}
+summary:hover{text-decoration:underline}
+summary span{color:#6e7781}
+footer{margin-top:44px;font-size:13.5px;color:#6e7781}
+@media (max-width:640px){
+  .page{padding:32px 18px 64px}
+  .toc ol{columns:1}
+}
+</style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <h1>C Language Practice</h1>
+    <p class="meta">49 programs · C11 · <code>gcc -Wall -Wextra</code></p>
+    <p class="intro">Every program is shown with the input it is given, what it prints, and its full source. The inputs and outputs are the pairs stored in <code>tests/cases/</code>, which <code>run-tests.sh</code> and <code>run-tests.cmd</code> check on every change.</p>
+  </header>
+  <nav class="toc">
+    <h2>Contents</h2>
+    <ol>
+      <li><a href="#p01">Hello World using C Language</a></li>
+      <li><a href="#p02">Variables + printf()</a></li>
+      <li><a href="#p03">Scanf() to Take Input from the User</a></li>
+      <li><a href="#p04">Take Two Numbers and Add Them</a></li>
+      <li><a href="#p05">Arithmetic Operations on Two Numbers</a></li>
+      <li><a href="#p06">Modulus % and Finding the Remainder</a></li>
+      <li><a href="#p07">Using float for Decimal Numbers</a></li>
+      <li><a href="#p08">Using char to Store and Print a Character</a></li>
+      <li><a href="#p09">Taking a Character as Input Using scanf()</a></li>
+      <li><a href="#p10">Taking a float Decimal Number as Input</a></li>
+      <li><a href="#p11">Calculate the Area of a Circle Using float</a></li>
+      <li><a href="#p12">Calculate Simple Interest Using float</a></li>
+      <li><a href="#p13">Celsius to Fahrenheit Using float</a></li>
+      <li><a href="#p14">Arithmetic Operators Using Two Numbers</a></li>
+      <li><a href="#p15">Odd or Even Using Conditional Operator</a></li>
+      <li><a href="#p16">Increment and Decrement Operators</a></li>
+      <li><a href="#p17">Shorthand Assignment Operators</a></li>
+      <li><a href="#p18">Sizeof Operator</a></li>
+      <li><a href="#p19">Grade Using if-else Ladder</a></li>
+      <li><a href="#p20">Print numbers from 1 to N using a for loop</a></li>
+      <li><a href="#p21">Find the sum of the digits of a number using a while loop</a></li>
+      <li><a href="#p22">Print the multiplication table of a number using a do-while loop</a></li>
+      <li><a href="#p23">Print a pyramid star pattern using nested loops</a></li>
+      <li><a href="#p24">Find the factorial of a number using recursion</a></li>
+      <li><a href="#p25">Check whether a number is prime using a function</a></li>
+      <li><a href="#p26">Find the largest and smallest element of an array</a></li>
+      <li><a href="#p27">Reverse an array in place</a></li>
+      <li><a href="#p28">Find the length of a string and count its vowels and consonants</a></li>
+      <li><a href="#p29">Check whether a string is a palindrome</a></li>
+      <li><a href="#p30">Swap two numbers using pointers</a></li>
+      <li><a href="#p31">Store and display student details using a structure</a></li>
+      <li><a href="#p32">Write data to a file and then read it back</a></li>
+      <li><a href="#p33">Print the Fibonacci series up to N terms</a></li>
+      <li><a href="#p34">Find the largest of three numbers</a></li>
+      <li><a href="#p35">Make a simple calculator using the switch statement</a></li>
+      <li><a href="#p36">Check whether a character is a vowel or a consonant using switch</a></li>
+      <li><a href="#p37">Reverse a number</a></li>
+      <li><a href="#p38">Check whether a number is a palindrome</a></li>
+      <li><a href="#p39">Check whether a number is an Armstrong number</a></li>
+      <li><a href="#p40">Print all prime numbers between two numbers</a></li>
+      <li><a href="#p41">Find the GCD and LCM of two numbers</a></li>
+      <li><a href="#p42">Sort an array using bubble sort</a></li>
+      <li><a href="#p43">Search for a value in a sorted array using binary search</a></li>
+      <li><a href="#p44">Add two 3x3 matrices using a 2D array</a></li>
+      <li><a href="#p45">Find the transpose of a matrix</a></li>
+      <li><a href="#p46">Count the number of words in a sentence</a></li>
+      <li><a href="#p47">Join two strings without using strcat()</a></li>
+      <li><a href="#p48">Store numbers using dynamic memory allocation with malloc()</a></li>
+      <li><a href="#p49">Demonstrate bitwise operators</a></li>
+    </ol>
+  </nav>
+
+    <section id="p01">
+      <h2><span class="n">01</span>Hello World using C Language</h2>
+      <p class="fname">Program 01.c</p>
+      <p class="label">Input</p>
+      <p class="none">None &mdash; the program takes no input.</p>
+      <p class="label">Output</p>
+      <pre class="io">Hello, World!</pre>
+      <details>
+        <summary>Source code <span>(51 lines)</span></summary>
+        <pre class="src">//Write code for Hello World using C Language
+// main code
+ 
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    printf("Hello, World!");
+
+    return 0;
+}
+
+
+/*Explanation
+
+1. #include &lt;stdio.h&gt;
+
+This includes the standard input/output library.
+
+It gives us functions such as:
+
+printf() → display something on the screen
+scanf() → take input from the user
+
+2. int main()
+
+main() is the starting point of a C program.
+
+When you run the program, execution starts from main().
+
+int means the function will return an integer value.
+
+3. { }
+
+The curly brackets define the body of the main() function.
+
+Everything inside { } belongs to main().
+
+4. printf("Hello, World!");
+
+printf() displays text on the screen.
+
+Output:
+
+Hello, World!
+
+The ; means the statement is finished.
+
+5. return 0;
+
+This tells the computer that the program finished successfully.*/</pre>
+      </details>
+    </section>
+    <section id="p02">
+      <h2><span class="n">02</span>Variables + printf()</h2>
+      <p class="fname">Program 02.c</p>
+      <p class="label">Input</p>
+      <p class="none">None &mdash; the program takes no input.</p>
+      <p class="label">Output</p>
+      <pre class="io">My age is 20</pre>
+      <details>
+        <summary>Source code <span>(62 lines)</span></summary>
+        <pre class="src"> //Write a code for Variables + printf()
+
+ #include &lt;stdio.h&gt;
+
+int main()
+{
+    int age = 20;
+
+    printf("My age is %d", age);
+
+    return 0;
+}
+
+/*
+Explanation
+1. #include &lt;stdio.h&gt;
+
+This includes the standard input/output library. It gives us functions such as:
+
+printf() → display something on the screen
+scanf() → take input from the user
+
+2. int main()
+
+main() is the starting point of a C program. When you run the program, execution starts from main(). 
+int means the function will return an integer value.
+
+3. { }
+
+The curly brackets define the body of the main() function.
+ 
+Everything inside { } belongs to main().
+
+4. int age = 20;
+
+This creates a variable called age.
+int means the variable can store a whole number.
+age is the name of the variable.
+20 is the value stored in the variable.
+
+So:
+
+age = 20
+
+The ; means the statement is finished.
+
+5. printf("My age is %d", age);
+
+printf() displays information on the screen.
+
+%d is used to display an integer value.
+
+age tells C to put the value of the age variable where %d is written.
+
+6. return 0;
+
+This tells the computer that the program finished successfully.
+
+Complete Output
+
+My age is 20
+*/</pre>
+      </details>
+    </section>
+    <section id="p03">
+      <h2><span class="n">03</span>Scanf() to Take Input from the User</h2>
+      <p class="fname">Program 03.c</p>
+      <p class="label">Input</p>
+      <pre class="io">20</pre>
+      <p class="label">Output</p>
+      <pre class="io">Enter your age: Your age is 20</pre>
+      <details>
+        <summary>Source code <span>(71 lines)</span></summary>
+        <pre class="src"> // Write a code for scanf() to Take Input from the User in c lang
+
+ #include &lt;stdio.h&gt;
+
+int main()
+{
+    int age;
+
+    printf("Enter your age: ");
+    scanf("%d", &amp;age);
+
+    printf("Your age is %d", age);
+
+    return 0;
+}
+
+/*
+Explanation
+1. #include &lt;stdio.h&gt;
+
+This includes the standard input/output library.
+
+It gives us functions such as:
+
+printf() → display something on the screen
+
+scanf() → take input from the user
+
+2. int main()
+
+main() is the starting point of a C program.
+
+When you run the program, execution starts from main().
+
+int means the function will return an integer value.
+
+3. { }
+
+The curly brackets define the body of the main() function.
+
+Everything inside { } belongs to main().
+
+4. int age;
+
+This creates an integer variable called age.
+
+We have not given it a value yet.
+
+The user will enter the value later.
+
+5. printf("Enter your age: ");
+
+printf() displays a message on the screen.
+
+Output:
+
+Enter your age:
+
+It asks the user to enter their age.
+
+6. scanf("%d", &amp;age);
+
+scanf() is used to take input from the user.
+
+%d tells C that we want to take an integer.
+
+&amp;age tells C where to store the value entered by the user.
+
+For example, if the user enters:
+
+20 */</pre>
+      </details>
+    </section>
+    <section id="p04">
+      <h2><span class="n">04</span>Take Two Numbers and Add Them</h2>
+      <p class="fname">Program 04.c</p>
+      <p class="label">Input</p>
+      <pre class="io">20
+10</pre>
+      <p class="label">Output</p>
+      <pre class="io">Enter first number: Enter second number: Sum = 30</pre>
+      <details>
+        <summary>Source code <span>(126 lines)</span></summary>
+        <pre class="src">// Write a code for Take Two Numbers and Add Them in c Lang.
+
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int num1, num2, sum;
+
+    printf("Enter first number: ");
+    scanf("%d", &amp;num1);
+
+    printf("Enter second number: ");
+    scanf("%d", &amp;num2);
+
+    sum = num1 + num2;
+
+    printf("Sum = %d", sum);
+
+    return 0;
+}
+
+/*
+Explanation
+1. #include &lt;stdio.h&gt;
+
+This includes the standard input/output library.
+
+It gives us functions such as:
+
+printf() → display something on the screen
+
+scanf() → take input from the user
+
+2. int main()
+
+main() is the starting point of a C program.
+
+When you run the program, execution starts from main().
+
+int means the function will return an integer value.
+
+3. { }
+
+The curly brackets define the body of the main() function.
+
+Everything inside { } belongs to main().
+
+4. int num1, num2, sum;
+
+This creates three integer variables:
+
+num1 → stores the first number
+
+num2 → stores the second number
+
+sum → stores the result of addition
+
+5. printf("Enter first number: ");
+
+This asks the user to enter the first number.
+
+Output:
+
+Enter first number:
+6. scanf("%d", &amp;num1);
+
+scanf() takes the number entered by the user.
+
+%d means we are taking an integer.
+
+&amp;num1 tells C to store the entered number inside num1.
+
+For example, if the user enters:
+
+10
+
+then:
+
+num1 = 10
+7. printf("Enter second number: ");
+
+This asks the user to enter the second number.
+
+8. scanf("%d", &amp;num2);
+
+This takes the second number from the user and stores it in num2.
+
+For example:
+
+num2 = 20
+9. sum = num1 + num2;
+
+This performs the addition.
+
+If:
+
+num1 = 10
+num2 = 20
+
+then:
+
+sum = 10 + 20
+
+Therefore:
+
+sum = 30
+10. printf("Sum = %d", sum);
+
+This displays the result.
+
+%d is replaced by the value stored in sum.
+
+Output:
+
+Sum = 30
+11. return 0;
+
+This tells the computer that the program finished successfully.
+
+Complete Output
+
+If the user enters 10 and 20:
+
+Enter first number: 10
+Enter second number: 20
+Sum = 30*/</pre>
+      </details>
+    </section>
+    <section id="p05">
+      <h2><span class="n">05</span>Arithmetic Operations on Two Numbers</h2>
+      <p class="fname">Program 05.c</p>
+      <p class="label">Input</p>
+      <pre class="io">20
+10</pre>
+      <p class="label">Output</p>
+      <pre class="io">Enter first number: Enter second number: Addition = 30
+Subtraction = 10
+Multiplication = 200
+Division = 2</pre>
+      <details>
+        <summary>Source code <span>(141 lines)</span></summary>
+        <pre class="src"> // Write a code for Arithmetic Operations on Two Numbers in C Language
+
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int num1, num2;
+
+    printf("Enter first number: ");
+    scanf("%d", &amp;num1);
+
+    printf("Enter second number: ");
+    scanf("%d", &amp;num2);
+
+    printf("Addition = %d\n", num1 + num2);
+    printf("Subtraction = %d\n", num1 - num2);
+    printf("Multiplication = %d\n", num1 * num2);
+    printf("Division = %d\n", num1 / num2);
+
+    return 0;
+}
+
+/*
+Explanation
+1. #include &lt;stdio.h&gt;
+
+This includes the standard input/output library.
+
+It gives us functions such as:
+
+printf() → display something on the screen
+
+scanf() → take input from the user
+
+2. int main()
+
+main() is the starting point of a C program.
+
+When you run the program, execution starts from main().
+
+int means the function will return an integer value.
+
+3. { }
+
+The curly brackets define the body of the main() function.
+
+Everything inside { } belongs to main().
+
+4. int num1, num2;
+
+This creates two integer variables:
+
+num1 → stores the first number
+
+num2 → stores the second number
+
+5. printf("Enter first number: ");
+
+This asks the user to enter the first number.
+
+6. scanf("%d", &amp;num1);
+
+This takes an integer from the user and stores it in num1.
+
+For example:
+
+num1 = 20
+7. printf("Enter second number: ");
+
+This asks the user to enter the second number.
+
+8. scanf("%d", &amp;num2);
+
+This takes an integer from the user and stores it in num2.
+
+For example:
+
+num2 = 10
+9. printf("Addition = %d\n", num1 + num2);
+
++ is the addition operator.
+
+If:
+
+num1 = 20
+num2 = 10
+
+then:
+
+20 + 10 = 30
+
+Output:
+
+Addition = 30
+
+\n moves the cursor to the next line.
+
+10. printf("Subtraction = %d\n", num1 - num2);
+
+- is the subtraction operator.
+
+20 - 10 = 10
+
+Output:
+
+Subtraction = 10
+11. printf("Multiplication = %d\n", num1 * num2);
+
+* is the multiplication operator.
+
+20 * 10 = 200
+
+Output:
+
+Multiplication = 200
+12. printf("Division = %d\n", num1 / num2);
+
+/ is the division operator.
+
+20 / 10 = 2
+
+Output:
+
+Division = 2
+
+Since we are using int, decimal parts are not displayed.
+
+13. return 0;
+
+This tells the computer that the program finished successfully.
+
+Complete Output
+
+If the user enters 20 and 10:
+
+Enter first number: 20
+Enter second number: 10
+Addition = 30
+Subtraction = 10
+Multiplication = 200
+Division = 2*/</pre>
+      </details>
+    </section>
+    <section id="p06">
+      <h2><span class="n">06</span>Modulus % and Finding the Remainder</h2>
+      <p class="fname">Program 06.c</p>
+      <p class="label">Input</p>
+      <pre class="io">20
+10</pre>
+      <p class="label">Output</p>
+      <pre class="io">Enter first number: Enter second number: Remainder = 0</pre>
+      <details>
+        <summary>Source code <span>(106 lines)</span></summary>
+        <pre class="src"> // Write a code for Modulus % and Finding the Remainder in C Language
+
+ #include &lt;stdio.h&gt;
+
+int main()
+{
+    int num1, num2, remainder;
+
+    printf("Enter first number: ");
+    scanf("%d", &amp;num1);
+
+    printf("Enter second number: ");
+    scanf("%d", &amp;num2);
+
+    remainder = num1 % num2;
+
+    printf("Remainder = %d", remainder);
+
+    return 0;
+}
+
+/*
+Explanation
+1. #include &lt;stdio.h&gt;
+
+This includes the standard input/output library.
+
+It gives us functions such as:
+
+printf() → display something on the screen
+
+scanf() → take input from the user
+
+2. int main()
+
+main() is the starting point of a C program.
+
+When you run the program, execution starts from main().
+
+int means the function will return an integer value.
+
+3. { }
+
+The curly brackets define the body of the main() function.
+
+Everything inside { } belongs to main().
+
+4. int num1, num2, remainder;
+
+This creates three integer variables.
+
+num1 → stores the first number
+
+num2 → stores the second number
+
+remainder → stores the remainder after division
+
+5. printf("Enter first number: ");
+
+This asks the user to enter the first number.
+
+6. scanf("%d", &amp;num1);
+
+This takes an integer from the user and stores it in num1.
+
+For example:
+
+num1 = 17
+7. printf("Enter second number: ");
+
+This asks the user to enter the second number.
+
+8. scanf("%d", &amp;num2);
+
+This takes an integer from the user and stores it in num2.
+
+For example:
+
+num2 = 5
+9. remainder = num1 % num2;
+
+% is called the modulus operator.
+
+It gives us the remainder after division.
+
+For example:
+
+17 ÷ 5 = 3 remainder 2
+
+Therefore:
+
+17 % 5 = 2
+
+So:
+
+remainder = 2
+10. printf("Remainder = %d", remainder);
+
+This displays the value stored in remainder.
+
+Output:
+
+Remainder = 2
+11. return 0;
+
+This tells the computer that the program finished successfully.*/</pre>
+      </details>
+    </section>
+    <section id="p07">
+      <h2><span class="n">07</span>Using float for Decimal Numbers</h2>
+      <p class="fname">Program 07.c</p>
+      <p class="label">Input</p>
+      <pre class="io">12.5
+4.5</pre>
+      <p class="label">Output</p>
+      <pre class="io">Enter first decimal number: Enter second decimal number: Sum = 17.00</pre>
+      <details>
+        <summary>Source code <span>(139 lines)</span></summary>
+        <pre class="src"> // Write a code for Using float for Decimal Numbers in C Lang
+
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    float num1, num2, sum;
+
+    printf("Enter first decimal number: ");
+    scanf("%f", &amp;num1);
+
+    printf("Enter second decimal number: ");
+    scanf("%f", &amp;num2);
+
+    sum = num1 + num2;
+
+    printf("Sum = %.2f", sum);
+
+    return 0;
+}
+
+/*
+Explanation
+1. #include &lt;stdio.h&gt;
+
+This includes the standard input/output library.
+
+It gives us functions such as:
+
+printf() → display something on the screen
+
+scanf() → take input from the user
+
+2. int main()
+
+main() is the starting point of a C program.
+
+When you run the program, execution starts from main().
+
+int means the function will return an integer value.
+
+3. { }
+
+The curly brackets define the body of the main() function.
+
+Everything inside { } belongs to main().
+
+4. float num1, num2, sum;
+
+This creates three variables using the float data type.
+
+float is used to store decimal numbers.
+
+For example:
+
+10.5
+25.75
+3.14
+
+Here:
+
+num1 → stores the first decimal number
+
+num2 → stores the second decimal number
+
+sum → stores the result
+
+5. printf("Enter first decimal number: ");
+
+This asks the user to enter the first decimal number.
+
+6. scanf("%f", &amp;num1);
+
+scanf() takes input from the user.
+
+%f is used for a float value.
+
+&amp;num1 tells C where to store the entered value.
+
+For example, if the user enters:
+
+10.5
+
+then:
+
+num1 = 10.5
+7. printf("Enter second decimal number: ");
+
+This asks the user to enter the second decimal number.
+
+8. scanf("%f", &amp;num2);
+
+This takes the second decimal number and stores it in num2.
+
+For example:
+
+num2 = 5.25
+9. sum = num1 + num2;
+
+This adds the two decimal numbers.
+
+If:
+
+num1 = 10.5
+num2 = 5.25
+
+then:
+
+sum = 10.5 + 5.25
+
+Therefore:
+
+sum = 15.75
+10. printf("Sum = %.2f", sum);
+
+This displays the value of sum.
+
+%f is used to display a float.
+
+%.2f means display 2 digits after the decimal point.
+
+For example:
+
+15.75
+
+Output:
+
+Sum = 15.75
+11. return 0;
+
+This tells the computer that the program finished successfully.
+
+Complete Output
+
+If the user enters 10.5 and 5.25:
+
+Enter first decimal number: 10.5
+Enter second decimal number: 5.25
+Sum = 15.75*/</pre>
+      </details>
+    </section>
+    <section id="p08">
+      <h2><span class="n">08</span>Using char to Store and Print a Character</h2>
+      <p class="fname">Program 08.c</p>
+      <p class="label">Input</p>
+      <p class="none">None &mdash; the program takes no input.</p>
+      <p class="label">Output</p>
+      <pre class="io">My grade is A</pre>
+      <details>
+        <summary>Source code <span>(72 lines)</span></summary>
+        <pre class="src"> // Write a code for Using char to Store and Print a Character
+
+ #include &lt;stdio.h&gt;
+
+int main()
+{
+    char grade = 'A';
+
+    printf("My grade is %c", grade);
+
+    return 0;
+}
+
+/*
+Explanation
+1. #include &lt;stdio.h&gt;
+
+This includes the standard input/output library.
+
+It gives us functions such as:
+
+printf() → display something on the screen
+
+scanf() → take input from the user
+
+2. int main()
+
+main() is the starting point of a C program.
+
+When you run the program, execution starts from main().
+
+int means the function will return an integer value.
+
+3. { }
+
+The curly brackets define the body of the main() function.
+
+Everything inside { } belongs to main().
+
+4. char grade = 'A';
+
+This creates a variable called grade.
+
+char is used to store a single character.
+
+'A' is the character stored in the variable.
+
+Notice that a character is written inside single quotes:
+
+'A'
+
+For example:
+
+char letter = 'B';
+char symbol = '#';
+char digit = '5';
+5. printf("My grade is %c", grade);
+
+printf() displays information on the screen.
+
+%c is used to display a single character.
+
+The value stored in grade is:
+
+A
+
+Therefore, the output is:
+
+My grade is A
+6. return 0;
+
+This tells the computer that the program finished successfully.*/</pre>
+      </details>
+    </section>
+    <section id="p09">
+      <h2><span class="n">09</span>Taking a Character as Input Using scanf()</h2>
+      <p class="fname">Program 09.c</p>
+      <p class="label">Input</p>
+      <pre class="io">A</pre>
+      <p class="label">Output</p>
+      <pre class="io">Enter a character: You entered: A</pre>
+      <details>
+        <summary>Source code <span>(106 lines)</span></summary>
+        <pre class="src">// Write code for  Taking a Character as Input Using scanf() in C Language 
+
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    char letter;
+
+    printf("Enter a character: ");
+    scanf(" %c", &amp;letter);
+
+    printf("You entered: %c", letter);
+
+    return 0;
+}
+
+/*
+Explanation
+1. #include &lt;stdio.h&gt;
+
+This includes the standard input/output library.
+
+It gives us functions such as:
+
+printf() → display something on the screen
+
+scanf() → take input from the user
+
+2. int main()
+
+main() is the starting point of a C program.
+
+When you run the program, execution starts from main().
+
+int means the function will return an integer value.
+
+3. { }
+
+The curly brackets define the body of the main() function.
+
+Everything inside { } belongs to main().
+
+4. char letter;
+
+This creates a variable called letter.
+
+char is used to store a single character.
+
+For example:
+
+char letter;
+
+It can store:
+
+A
+B
+x
+#
+5
+5. printf("Enter a character: ");
+
+This asks the user to enter a character.
+
+Output:
+
+Enter a character:
+6. scanf(" %c", &amp;letter);
+
+scanf() is used to take input from the user.
+
+%c is used to take a single character.
+
+&amp;letter tells C where to store the entered character.
+
+There is a space before %c:
+
+scanf(" %c", &amp;letter);
+
+This helps C ignore a leftover newline or whitespace from previous input.
+
+For example, if the user enters:
+
+A
+
+then:
+
+letter = 'A'
+7. printf("You entered: %c", letter);
+
+This displays the character stored in letter.
+
+%c is used to display a character.
+
+Output:
+
+You entered: A
+8. return 0;
+
+This tells the computer that the program finished successfully.
+
+Complete Output
+
+If the user enters A:
+
+Enter a character: A
+You entered: A . */</pre>
+      </details>
+    </section>
+    <section id="p10">
+      <h2><span class="n">10</span>Taking a float Decimal Number as Input</h2>
+      <p class="fname">Program 10.c</p>
+      <p class="label">Input</p>
+      <pre class="io">3.75</pre>
+      <p class="label">Output</p>
+      <pre class="io">Enter a decimal number: You entered: 3.75</pre>
+      <details>
+        <summary>Source code <span>(93 lines)</span></summary>
+        <pre class="src">// Write a code for Taking a float Decimal Number as Input in C Language
+
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    float number;
+
+    printf("Enter a decimal number: ");
+    scanf("%f", &amp;number);
+
+    printf("You entered: %.2f", number);
+
+    return 0;
+}
+
+/*
+Explanation
+1. #include &lt;stdio.h&gt;
+
+This includes the standard input/output library.
+
+It gives us functions such as:
+
+printf() → display something on the screen
+
+scanf() → take input from the user
+
+2. int main()
+
+main() is the starting point of a C program.
+
+When you run the program, execution starts from main().
+
+int means the function will return an integer value.
+
+3. { }
+
+The curly brackets define the body of the main() function.
+
+Everything inside { } belongs to main().
+
+4. float number;
+
+This creates a variable called number.
+
+float is used to store decimal numbers.
+
+For example:
+
+10.5
+25.75
+3.14
+5. printf("Enter a decimal number: ");
+
+This asks the user to enter a decimal number.
+
+Output:
+
+Enter a decimal number:
+6. scanf("%f", &amp;number);
+
+scanf() is used to take input from the user.
+
+%f is used to take a float value.
+
+&amp;number tells C where to store the entered value.
+
+For example, if the user enters:
+
+25.75
+
+then:
+
+number = 25.75
+7. printf("You entered: %.2f", number);
+
+This displays the value stored in number.
+
+%f → displays a decimal number.
+
+%.2f → displays 2 digits after the decimal point.
+
+For example:
+
+You entered: 25.75
+8. return 0;
+
+This tells the computer that the program finished successfully.
+
+Complete Output
+Enter a decimal number: 25.75
+You entered: 25.75   . */</pre>
+      </details>
+    </section>
+    <section id="p11">
+      <h2><span class="n">11</span>Calculate the Area of a Circle Using float</h2>
+      <p class="fname">Program 11.c</p>
+      <p class="label">Input</p>
+      <pre class="io">7</pre>
+      <p class="label">Output</p>
+      <pre class="io">Enter radius of circle: Area of circle = 153.86</pre>
+      <details>
+        <summary>Source code <span>(117 lines)</span></summary>
+        <pre class="src">// Write a code for Calculate the Area of a Circle Using float in C Language
+
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    float radius, area;
+    float pi = 3.14;
+
+    printf("Enter radius of circle: ");
+    scanf("%f", &amp;radius);
+
+    area = pi * radius * radius;
+
+    printf("Area of circle = %.2f", area);
+
+    return 0;
+}
+
+/*
+Explanation
+1. #include &lt;stdio.h&gt;
+
+This includes the standard input/output library.
+
+It gives us functions such as:
+
+printf() → display something on the screen
+
+scanf() → take input from the user
+
+2. int main()
+
+main() is the starting point of a C program.
+
+When you run the program, execution starts from main().
+
+int means the function will return an integer value.
+
+3. { }
+
+The curly brackets define the body of the main() function.
+
+Everything inside { } belongs to main().
+
+4. float radius, area;
+
+This creates two float variables.
+
+radius → stores the radius of the circle
+
+area → stores the calculated area
+
+We use float because the values can contain decimal numbers.
+
+5. float pi = 3.14;
+
+This creates a float variable called pi.
+
+We store the value 3.14 in it.
+
+pi = 3.14
+6. printf("Enter radius of circle: ");
+
+This asks the user to enter the radius.
+
+Output:
+
+Enter radius of circle:
+7. scanf("%f", &amp;radius);
+
+scanf() takes the radius from the user.
+
+%f is used for a float value.
+
+&amp;radius tells C where to store the entered value.
+
+For example, if the user enters:
+
+5
+
+then:
+
+radius = 5
+8. area = pi * radius * radius;
+
+This calculates the area of the circle.
+
+The formula is:
+
+Area = π × radius × radius
+
+If:
+
+pi = 3.14
+radius = 5
+
+then:
+
+area = 3.14 × 5 × 5
+area = 78.50
+9. printf("Area of circle = %.2f", area);
+
+This displays the calculated area.
+
+%.2f means display 2 digits after the decimal point.
+
+Output:
+
+Area of circle = 78.50
+10. return 0;
+
+This tells the computer that the program finished successfully.
+
+Complete Output
+Enter radius of circle: 5
+Area of circle = 78.50         .*/</pre>
+      </details>
+    </section>
+    <section id="p12">
+      <h2><span class="n">12</span>Calculate Simple Interest Using float</h2>
+      <p class="fname">Program 12.c</p>
+      <p class="label">Input</p>
+      <pre class="io">10000
+2
+5</pre>
+      <p class="label">Output</p>
+      <pre class="io">Enter Amount: Enter No of Years: Enter Rate: Interest = 1000.00</pre>
+      <details>
+        <summary>Source code <span>(165 lines)</span></summary>
+        <pre class="src">// Write a code for Calculate Simple Interest Using float in C Language
+
+// The manual gives the formula as i = (p*r*n)/100.
+
+
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int n;
+    float p, r, I;
+
+    printf("Enter Amount: ");
+    scanf("%f", &amp;p);
+
+    printf("Enter No of Years: ");
+    scanf("%d", &amp;n);
+
+    printf("Enter Rate: ");
+    scanf("%f", &amp;r);
+
+    I = (p * r * n) / 100;
+
+    printf("Interest = %.2f", I);
+
+    return 0;
+}
+
+/*
+Explanation
+1. #include &lt;stdio.h&gt;
+
+This includes the standard input/output library.
+
+It gives us functions such as:
+
+printf() → display something on the screen
+
+scanf() → take input from the user
+
+2. int main()
+
+main() is the starting point of a C program.
+
+When you run the program, execution starts from main().
+
+int means the function will return an integer value.
+
+3. { }
+
+The curly brackets define the body of the main() function.
+
+Everything inside { } belongs to main().
+
+4. int n;
+
+This creates an integer variable called n.
+
+Here, n stores the number of years.
+
+For example:
+
+n = 2
+5. float p, r, I;
+
+This creates three float variables.
+
+p → stores the principal amount
+
+r → stores the rate of interest
+
+I → stores the calculated simple interest
+
+We use float because these values can contain decimal numbers.
+
+6. printf("Enter Amount: ");
+
+This asks the user to enter the amount.
+
+For example:
+
+Enter Amount: 10000
+7. scanf("%f", &amp;p);
+
+scanf() takes the amount entered by the user.
+
+%f is used because p is a float.
+
+&amp;p tells C where to store the entered value.
+
+For example:
+
+p = 10000
+8. printf("Enter No of Years: ");
+
+This asks the user to enter the number of years.
+
+For example:
+
+Enter No of Years: 2
+9. scanf("%d", &amp;n);
+
+This takes an integer value from the user.
+
+%d is used because n is an int.
+
+For example:
+
+n = 2
+10. printf("Enter Rate: ");
+
+This asks the user to enter the rate of interest.
+
+For example:
+
+Enter Rate: 5
+11. scanf("%f", &amp;r);
+
+This takes the rate from the user.
+
+%f is used because r is a float.
+
+For example:
+
+r = 5
+12. I = (p * r * n) / 100;
+
+This calculates the simple interest.
+
+The formula is:
+
+I = (p × r × n) / 100
+
+Suppose:
+
+p = 10000
+r = 5
+n = 2
+
+Then:
+
+I = (10000 × 5 × 2) / 100
+I = 1000
+
+So the simple interest is:
+
+1000
+13. printf("Interest = %.2f", I);
+
+This displays the calculated interest.
+
+%.2f means the answer will be displayed with 2 digits after the decimal point.
+
+Output:
+
+Interest = 1000.00
+14. return 0;
+
+This tells the computer that the program finished successfully.
+
+Complete Output
+Enter Amount: 10000
+Enter No of Years: 2
+Enter Rate: 5
+Interest = 1000.00   . */</pre>
+      </details>
+    </section>
+    <section id="p13">
+      <h2><span class="n">13</span>Celsius to Fahrenheit Using float</h2>
+      <p class="fname">Program 13.c</p>
+      <p class="label">Input</p>
+      <pre class="io">37</pre>
+      <p class="label">Output</p>
+      <pre class="io">Enter Temperature in Celsius: 37.00 Celsius = 98.60 Fahrenheit</pre>
+      <details>
+        <summary>Source code <span>(119 lines)</span></summary>
+        <pre class="src">// Write a code for Celsius to Fahrenheit Using float in C Language
+
+// The manual uses the formula F = 1.8 × C + 32.
+
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    float F, C;
+
+    printf("Enter Temperature in Celsius: ");
+    scanf("%f", &amp;C);
+
+    F = (C * 1.8) + 32;
+
+    printf("%.2f Celsius = %.2f Fahrenheit", C, F);
+
+    return 0;
+}
+/*
+Explanation
+1. #include &lt;stdio.h&gt;
+
+This includes the standard input/output library.
+
+It gives us functions such as:
+
+printf() → display something on the screen
+
+scanf() → take input from the user
+
+2. int main()
+
+main() is the starting point of a C program.
+
+When you run the program, execution starts from main().
+
+int means the function will return an integer value.
+
+3. { }
+
+The curly brackets define the body of the main() function.
+
+Everything inside { } belongs to main().
+
+4. float F, C;
+
+This creates two float variables.
+
+C → stores the temperature in Celsius
+
+F → stores the temperature in Fahrenheit
+
+We use float because temperature can contain decimal values.
+
+5. printf("Enter Temperature in Celsius: ");
+
+This asks the user to enter the temperature in Celsius.
+
+Output:
+
+Enter Temperature in Celsius:
+6. scanf("%f", &amp;C);
+
+scanf() takes the temperature entered by the user.
+
+%f is used because C is a float.
+
+&amp;C tells C where to store the entered value.
+
+For example, if the user enters:
+
+25
+
+then:
+
+C = 25
+7. F = (C * 1.8) + 32;
+
+This converts Celsius into Fahrenheit.
+
+The formula is:
+
+F = 1.8 × C + 32
+
+If:
+
+C = 25
+
+then:
+
+F = (25 × 1.8) + 32
+F = 45 + 32
+F = 77
+
+So:
+
+F = 77
+8. printf("%.2f Celsius = %.2f Fahrenheit", C, F);
+
+This displays both temperatures.
+
+%.2f means display 2 digits after the decimal point.
+
+Output:
+
+25.00 Celsius = 77.00 Fahrenheit
+9. return 0;
+
+This tells the computer that the program finished successfully.
+
+Complete Output
+Enter Temperature in Celsius: 25
+25.00 Celsius = 77.00 Fahrenheit
+Important
+
+Remember the conversion formula:
+
+F = (C × 1.8) + 32        */</pre>
+      </details>
+    </section>
+    <section id="p14">
+      <h2><span class="n">14</span>Arithmetic Operators Using Two Numbers</h2>
+      <p class="fname">Program 14.c</p>
+      <p class="label">Input</p>
+      <pre class="io">20
+10</pre>
+      <p class="label">Output</p>
+      <pre class="io">Enter first number: Enter second number: Addition = 30
+Subtraction = 10
+Multiplication = 200
+Division = 2
+Remainder = 0</pre>
+      <details>
+        <summary>Source code <span>(163 lines)</span></summary>
+        <pre class="src">// Write code for Arithmetic Operators Using Two Numbers in C Language
+
+/*Write a program to demonstrate the use of Arithmetic
+operators by getting two numbers from the user */
+
+
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int num1, num2;
+
+    printf("Enter first number: ");
+    scanf("%d", &amp;num1);
+
+    printf("Enter second number: ");
+    scanf("%d", &amp;num2);
+
+    printf("Addition = %d\n", num1 + num2);
+    printf("Subtraction = %d\n", num1 - num2);
+    printf("Multiplication = %d\n", num1 * num2);
+    printf("Division = %d\n", num1 / num2);
+    printf("Remainder = %d\n", num1 % num2);
+
+    return 0;
+}
+
+/*
+Explanation
+1. #include &lt;stdio.h&gt;
+
+This includes the standard input/output library.
+
+It gives us functions such as:
+
+printf() → display something on the screen
+
+scanf() → take input from the user
+
+2. int main()
+
+main() is the starting point of a C program.
+
+When you run the program, execution starts from main().
+
+int means the function will return an integer value.
+
+3. { }
+
+The curly brackets define the body of the main() function.
+
+Everything inside { } belongs to main().
+
+4. int num1, num2;
+
+This creates two integer variables.
+
+num1 → stores the first number
+
+num2 → stores the second number
+
+5. printf("Enter first number: ");
+
+This asks the user to enter the first number.
+
+6. scanf("%d", &amp;num1);
+
+scanf() takes an integer from the user.
+
+%d → used for an integer
+
+&amp;num1 → tells C where to store the entered number
+
+For example:
+
+num1 = 20
+7. printf("Enter second number: ");
+
+This asks the user to enter the second number.
+
+8. scanf("%d", &amp;num2);
+
+This takes the second integer and stores it in num2.
+
+For example:
+
+num2 = 6
+9. num1 + num2
+
+The + operator performs addition.
+
+20 + 6 = 26
+
+Output:
+
+Addition = 26
+10. num1 - num2
+
+The - operator performs subtraction.
+
+20 - 6 = 14
+
+Output:
+
+Subtraction = 14
+11. num1 * num2
+
+The * operator performs multiplication.
+
+20 * 6 = 120
+
+Output:
+
+Multiplication = 120
+12. num1 / num2
+
+The / operator performs division.
+
+20 / 6 = 3
+
+Because both variables are int, the decimal part is removed.
+
+So the result is:
+
+Division = 3
+13. num1 % num2
+
+The % operator gives the remainder.
+
+20 ÷ 6 = 3 remainder 2
+
+Therefore:
+
+20 % 6 = 2
+
+Output:
+
+Remainder = 2
+14. \n
+
+\n means new line.
+
+For example:
+
+printf("Addition = %d\n", num1 + num2);
+
+After printing the addition, the next output starts on a new line.
+
+15. return 0;
+
+This tells the computer that the program finished successfully.
+
+Complete Output
+
+If the user enters 20 and 6:
+
+Enter first number: 20
+Enter second number: 6
+Addition = 26
+Subtraction = 14
+Multiplication = 120
+Division = 3
+Remainder = 2  .*/</pre>
+      </details>
+    </section>
+    <section id="p15">
+      <h2><span class="n">15</span>Odd or Even Using Conditional Operator</h2>
+      <p class="fname">Program 15.c</p>
+      <p class="label">Input</p>
+      <pre class="io">7</pre>
+      <p class="label">Output</p>
+      <pre class="io">Enter a number: Odd</pre>
+      <details>
+        <summary>Source code <span>(135 lines)</span></summary>
+        <pre class="src">// Write code for Odd or Even Using Conditional Operator in C Language
+
+/*Write a program to find the number is odd or even using conditional operator*/
+
+
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int num;
+
+    printf("Enter a number: ");
+    scanf("%d", &amp;num);
+
+    (num % 2 == 0) ? printf("Even") : printf("Odd");
+
+    return 0;
+}
+
+/*
+Explanation
+1. #include &lt;stdio.h&gt;
+
+This includes the standard input/output library.
+
+It gives us functions such as:
+
+printf() → display something on the screen
+
+scanf() → take input from the user
+
+2. int main()
+
+main() is the starting point of a C program.
+
+When you run the program, execution starts from main().
+
+int means the function will return an integer value.
+
+3. { }
+
+The curly brackets define the body of the main() function.
+
+Everything inside { } belongs to main().
+
+4. int num;
+
+This creates an integer variable called num.
+
+It will store the number entered by the user.
+
+5. printf("Enter a number: ");
+
+This asks the user to enter a number.
+
+Output:
+
+Enter a number:
+6. scanf("%d", &amp;num);
+
+This takes an integer from the user and stores it in num.
+
+For example, if the user enters:
+
+10
+
+then:
+
+num = 10
+7. num % 2
+
+The % operator gives the remainder after division.
+
+If:
+
+num = 10
+
+then:
+
+10 % 2 = 0
+
+If the remainder is 0, the number is even.
+
+8. num % 2 == 0
+
+== is the comparison operator.
+
+It checks whether two values are equal.
+
+So:
+
+num % 2 == 0
+
+means:
+
+"Is the remainder equal to 0?"
+
+9. ? printf("Even") : printf("Odd");
+
+This is called the conditional operator.
+
+Its basic structure is:
+
+condition ? statement1 : statement2;
+
+If the condition is true, statement1 runs.
+
+If the condition is false, statement2 runs.
+
+Here:
+
+(num % 2 == 0) ? printf("Even") : printf("Odd");
+
+If the number is divisible by 2:
+
+Even
+
+Otherwise:
+
+Odd
+10. return 0;
+
+This tells the computer that the program finished successfully.
+
+Complete Output
+
+If the user enters 10:
+
+Enter a number: 10
+Even
+
+If the user enters 7:
+
+Enter a number: 7
+Odd   .. */</pre>
+      </details>
+    </section>
+    <section id="p16">
+      <h2><span class="n">16</span>Increment and Decrement Operators</h2>
+      <p class="fname">Program 16.c</p>
+      <p class="label">Input</p>
+      <p class="none">None &mdash; the program takes no input.</p>
+      <p class="label">Output</p>
+      <pre class="io">Value of a = 10
+After increment = 11
+After decrement = 10</pre>
+      <details>
+        <summary>Source code <span>(46 lines)</span></summary>
+        <pre class="src">// Write code for Increment and Decrement Operators in C Language
+
+/*Write a program to demonstrate the use of increment and decrement operators*/
+
+
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int a = 10;
+
+    printf("Value of a = %d\n", a);
+
+    a++;
+    printf("After increment = %d\n", a);
+
+    a--;
+    printf("After decrement = %d\n", a);
+
+    return 0;
+}
+
+/*
+Explanation
+#include &lt;stdio.h&gt; — Includes the standard input/output library so we can use printf().
+int main() — The main function where the program starts.
+{ — Starts the body of the main() function.
+int a = 10; — Creates an integer variable a and stores 10 in it.
+printf("Value of a = %d\n", a); — Prints the current value of a.
+%d is used for an integer.
+\n moves to the next line.
+a++; — Increment operator increases a by 1.
+10 becomes 11.
+printf("After increment = %d\n", a); — Prints the new value, 11.
+a--; — Decrement operator decreases a by 1.
+11 becomes 10.
+printf("After decrement = %d\n", a); — Prints the new value, 10.
+return 0; — Ends the program successfully.
+} — Ends the main() function.
+Complete Output
+Value of a = 10
+After increment = 11
+After decrement = 10
+Remember
+a++ → increases by 1
+a-- → decreases by 1   . */</pre>
+      </details>
+    </section>
+    <section id="p17">
+      <h2><span class="n">17</span>Shorthand Assignment Operators</h2>
+      <p class="fname">Program 17.c</p>
+      <p class="label">Input</p>
+      <p class="none">None &mdash; the program takes no input.</p>
+      <p class="label">Output</p>
+      <pre class="io">Initial value = 10
+After a += 5 = 15
+After a -= 3 = 12
+After a *= 2 = 24
+After a /= 4 = 6</pre>
+      <details>
+        <summary>Source code <span>(83 lines)</span></summary>
+        <pre class="src">// Write code for   Shorthand Assignment Operators in C Language
+
+/*Write a program to demonstrate the use of shorthand assignment operators*/
+
+
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int a = 10;
+
+    printf("Initial value = %d\n", a);
+
+    a += 5;
+    printf("After a += 5 = %d\n", a);
+
+    a -= 3;
+    printf("After a -= 3 = %d\n", a);
+
+    a *= 2;
+    printf("After a *= 2 = %d\n", a);
+
+    a /= 4;
+    printf("After a /= 4 = %d\n", a);
+
+    return 0;
+}
+
+
+/* Explanation
+
+1. `#include &lt;stdio.h&gt;` — Includes the standard input/output library for using `printf()`.
+
+2. `int main()` — The main function where program execution starts.
+
+3. `{` — Starts the `main()` function.
+
+4. `int a = 10;` — Declares an integer variable `a` and gives it the value `10`.
+
+5. `printf("Initial value = %d\n", a);` — Prints the initial value of `a`.
+
+6. `a += 5;` — Adds `5` to `a`.
+
+   * Same as `a = a + 5`
+   * `10 + 5 = 15`
+
+7. `a -= 3;` — Subtracts `3` from `a`.
+
+   * Same as `a = a - 3`
+   * `15 - 3 = 12`
+
+8. `a *= 2;` — Multiplies `a` by `2`.
+
+   * Same as `a = a * 2`
+   * `12 × 2 = 24`
+
+9. `a /= 4;` — Divides `a` by `4`.
+
+   * Same as `a = a / 4`
+   * `24 ÷ 4 = 6`
+
+10. `return 0;` — Ends the program successfully.
+
+11. `}` — Ends the `main()` function.
+
+## Complete Output
+
+```text
+Initial value = 10
+After a += 5 = 15
+After a -= 3 = 12
+After a *= 2 = 24
+After a /= 4 = 6
+```
+
+### Remember
+
+* `a += b` → `a = a + b`
+* `a -= b` → `a = a - b`
+* `a *= b` → `a = a * b`
+* `a /= b` → `a = a / b`
+* `a %= b` → `a = a % b`
+ */</pre>
+      </details>
+    </section>
+    <section id="p18">
+      <h2><span class="n">18</span>Sizeof Operator</h2>
+      <p class="fname">Program 18.c</p>
+      <p class="label">Input</p>
+      <p class="none">None &mdash; the program takes no input.</p>
+      <p class="label">Output</p>
+      <pre class="io">Size of int = 4 bytes
+Size of float = 4 bytes
+Size of char = 1 byte</pre>
+      <details>
+        <summary>Source code <span>(57 lines)</span></summary>
+        <pre class="src">// Write code for sizeof Operator in C Language
+
+/*Write a program to demonstrate the use of sizeof operator*/
+
+
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int a;
+    float b;
+    char c;
+
+    printf("Size of int = %zu bytes\n", sizeof(a));
+    printf("Size of float = %zu bytes\n", sizeof(b));
+    printf("Size of char = %zu byte\n", sizeof(c));
+
+    return 0;
+}
+
+
+/* Explanation
+
+1. `#include &lt;stdio.h&gt;` — Includes the standard input/output library for using `printf()`.
+
+2. `int main()` — The main function where program execution starts.
+
+3. `int a;` — Creates an integer variable named `a`.
+
+4. `float b;` — Creates a floating-point variable named `b`.
+
+5. `char c;` — Creates a character variable named `c`.
+
+6. `sizeof(a)` — Finds the amount of memory used by variable `a`.
+
+7. `%zu` — Format specifier used to print the result of `sizeof`.
+
+8. `sizeof(b)` — Finds the memory size of the `float` variable.
+
+9. `sizeof(c)` — Finds the memory size of the `char` variable.
+
+10. `return 0;` — Ends the program successfully.
+
+ Complete Output
+
+The exact size of `int` and `float` can depend on the system/compiler. A common output is:
+
+text
+Size of int = 4 bytes
+Size of float = 4 bytes
+Size of char = 1 byte
+
+
+emember
+
+`sizeof()` → tells you **how many bytes of memory** a data type or variable uses.
+*/</pre>
+      </details>
+    </section>
+    <section id="p19">
+      <h2><span class="n">19</span>Grade Using if-else Ladder</h2>
+      <p class="fname">Program 19.c</p>
+      <p class="label">Input</p>
+      <pre class="io">72</pre>
+      <p class="label">Output</p>
+      <pre class="io">Enter your marks: Grade C</pre>
+      <details>
+        <summary>Source code <span>(56 lines)</span></summary>
+        <pre class="src">// Write a program for Grade Using if-else Ladder in C Lang.
+
+  
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int marks;
+
+    printf("Enter your marks: ");
+    scanf("%d", &amp;marks);
+
+    if (marks &gt;= 90)
+        printf("Grade A");
+    else if (marks &gt;= 80)
+        printf("Grade B");
+    else if (marks &gt;= 70)
+        printf("Grade C");
+    else if (marks &gt;= 60)
+        printf("Grade D");
+    else
+        printf("Grade F");
+
+    return 0;
+}
+
+/*
+Explanation
+#include &lt;stdio.h&gt; — Includes the standard input/output library.
+int main() — The main function where program execution starts.
+int marks; — Declares an integer variable to store marks.
+printf("Enter your marks: "); — Asks the user to enter marks.
+scanf("%d", &amp;marks); — Takes the marks as input.
+if (marks &gt;= 90) — Checks if marks are 90 or more.
+If true, it prints Grade A.
+else if (marks &gt;= 80) — If the first condition is false, checks whether marks are 80 or more.
+else if (marks &gt;= 70) — Checks whether marks are 70 or more.
+else if (marks &gt;= 60) — Checks whether marks are 60 or more.
+else — Executes when none of the above conditions are true.
+return 0; — Ends the program successfully.
+Complete Output
+Example 1
+Enter your marks: 95
+Grade A
+Example 2
+Enter your marks: 75
+Grade C
+Example 3
+Enter your marks: 45
+Grade F
+Remember
+if       → first condition
+else if  → another condition
+else     → if all conditions are false
+
+This is called an if-else ladder because multiple conditions are checked one after another.*/</pre>
+      </details>
+    </section>
+    <section id="p20">
+      <h2><span class="n">20</span>Print numbers from 1 to N using a for loop</h2>
+      <p class="fname">Program 20.c</p>
+      <p class="label">Input</p>
+      <pre class="io">5</pre>
+      <p class="label">Output</p>
+      <pre class="io">Enter N: 1 2 3 4 5 </pre>
+      <details>
+        <summary>Source code <span>(52 lines)</span></summary>
+        <pre class="src">// Write a program to print numbers from 1 to N using a for loop
+
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int n, i;
+
+    printf("Enter N: ");
+    scanf("%d", &amp;n);
+
+    for (i = 1; i &lt;= n; i++)
+    {
+        printf("%d ", i);
+    }
+
+    printf("\n");
+
+    return 0;
+}
+
+/*
+Explanation
+
+1. int n, i;
+
+n stores the limit entered by the user.
+i is the loop counter.
+
+2. for (i = 1; i &lt;= n; i++)
+
+A for loop has three parts inside the brackets:
+
+    i = 1     -&gt; starting value (run once, before the loop)
+    i &lt;= n    -&gt; condition (checked before every round)
+    i++       -&gt; update (runs after every round)
+
+So the loop starts at 1 and keeps repeating while i is not greater than n.
+
+3. printf("%d ", i);
+
+Prints the current value of i followed by a space.
+
+4. printf("\n");
+
+Moves the cursor to a new line after the loop ends.
+
+Complete Output
+
+Enter N: 5
+1 2 3 4 5
+*/</pre>
+      </details>
+    </section>
+    <section id="p21">
+      <h2><span class="n">21</span>Find the sum of the digits of a number using a while loop</h2>
+      <p class="fname">Program 21.c</p>
+      <p class="label">Input</p>
+      <pre class="io">6</pre>
+      <p class="label">Output</p>
+      <pre class="io">Enter a number: Sum of digits = 6</pre>
+      <details>
+        <summary>Source code <span>(68 lines)</span></summary>
+        <pre class="src">// Write a program to find the sum of the digits of a number using a while loop
+
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int num, digit, sum = 0;
+
+    printf("Enter a number: ");
+    scanf("%d", &amp;num);
+
+    /* Work with the positive value so negative input also works. */
+    if (num &lt; 0)
+        num = -num;
+
+    while (num &gt; 0)
+    {
+        digit = num % 10;   /* pick the last digit */
+        sum = sum + digit;  /* add it to the total */
+        num = num / 10;     /* remove the last digit */
+    }
+
+    printf("Sum of digits = %d\n", sum);
+
+    return 0;
+}
+
+/*
+Explanation
+
+1. int num, digit, sum = 0;
+
+num   -&gt; the number entered by the user
+digit -&gt; the last digit picked in each round
+sum   -&gt; the running total (must start at 0)
+
+2. while (num &gt; 0)
+
+The loop keeps running until the number becomes 0.
+
+3. digit = num % 10;
+
+The % operator gives the remainder, so it extracts the last digit.
+
+1234 % 10 = 4
+
+4. sum = sum + digit;
+
+Adds that digit to the running total.
+
+5. num = num / 10;
+
+Integer division drops the last digit.
+
+1234 / 10 = 123
+
+Steps for 1234:
+
+    round 1 -&gt; digit 4, sum 4,  num 123
+    round 2 -&gt; digit 3, sum 7,  num 12
+    round 3 -&gt; digit 2, sum 9,  num 1
+    round 4 -&gt; digit 1, sum 10, num 0   (loop ends)
+
+Complete Output
+
+Enter a number: 1234
+Sum of digits = 10
+*/</pre>
+      </details>
+    </section>
+    <section id="p22">
+      <h2><span class="n">22</span>Print the multiplication table of a number using a do-while loop</h2>
+      <p class="fname">Program 22.c</p>
+      <p class="label">Input</p>
+      <pre class="io">5</pre>
+      <p class="label">Output</p>
+      <pre class="io">Enter a number: 
+Multiplication table of 5
+
+5 x 1 = 5
+5 x 2 = 10
+5 x 3 = 15
+5 x 4 = 20
+5 x 5 = 25
+5 x 6 = 30
+5 x 7 = 35
+5 x 8 = 40
+5 x 9 = 45
+5 x 10 = 50</pre>
+      <details>
+        <summary>Source code <span>(64 lines)</span></summary>
+        <pre class="src">// Write a program to print the multiplication table of a number using a do-while loop
+
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int num, i = 1;
+
+    printf("Enter a number: ");
+    scanf("%d", &amp;num);
+
+    printf("\nMultiplication table of %d\n\n", num);
+
+    do
+    {
+        printf("%d x %d = %d\n", num, i, num * i);
+        i++;
+    } while (i &lt;= 10);
+
+    return 0;
+}
+
+/*
+Explanation
+
+1. int num, i = 1;
+
+num -&gt; the number whose table we want
+i   -&gt; counter that starts at 1
+
+2. do { ... } while (i &lt;= 10);
+
+A do-while loop runs the body first and checks the condition afterwards.
+That means the body always runs at least once, even if the condition is false.
+
+The while loop checks the condition before running the body, so it can run zero times.
+
+3. printf("%d x %d = %d\n", num, i, num * i);
+
+Prints one line of the table such as:
+
+    5 x 1 = 5
+
+4. i++;
+
+Moves to the next multiplier.
+
+Complete Output
+
+Enter a number: 5
+
+Multiplication table of 5
+
+5 x 1 = 5
+5 x 2 = 10
+5 x 3 = 15
+5 x 4 = 20
+5 x 5 = 25
+5 x 6 = 30
+5 x 7 = 35
+5 x 8 = 40
+5 x 9 = 45
+5 x 10 = 50
+*/</pre>
+      </details>
+    </section>
+    <section id="p23">
+      <h2><span class="n">23</span>Print a pyramid star pattern using nested loops</h2>
+      <p class="fname">Program 23.c</p>
+      <p class="label">Input</p>
+      <pre class="io">5</pre>
+      <p class="label">Output</p>
+      <pre class="io">Enter number of rows:     *
+   ***
+  *****
+ *******
+*********</pre>
+      <details>
+        <summary>Source code <span>(58 lines)</span></summary>
+        <pre class="src">// Write a program to print a pyramid star pattern using nested loops
+
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int rows, i, j;
+
+    printf("Enter number of rows: ");
+    scanf("%d", &amp;rows);
+
+    for (i = 1; i &lt;= rows; i++)
+    {
+        /* Print the leading spaces so the stars stay centred. */
+        for (j = 1; j &lt;= rows - i; j++)
+            printf(" ");
+
+        /* Row i has 2 * i - 1 stars. */
+        for (j = 1; j &lt;= (2 * i - 1); j++)
+            printf("*");
+
+        printf("\n");
+    }
+
+    return 0;
+}
+
+/*
+Explanation
+
+1. A nested loop means one loop inside another.
+
+The outer loop (i) controls the rows.
+The inner loops (j) control what is printed on each row.
+
+2. for (j = 1; j &lt;= rows - i; j++)
+
+Prints the spaces before the stars.
+Row 1 needs the most spaces, the last row needs none.
+
+3. for (j = 1; j &lt;= (2 * i - 1); j++)
+
+Row 1 prints 1 star, row 2 prints 3 stars, row 3 prints 5 stars.
+The formula is 2 * i - 1.
+
+4. printf("\n");
+
+Moves to the next row.
+
+Complete Output
+
+Enter number of rows: 5
+    *
+   ***
+  *****
+ *******
+*********
+*/</pre>
+      </details>
+    </section>
+    <section id="p24">
+      <h2><span class="n">24</span>Find the factorial of a number using recursion</h2>
+      <p class="fname">Program 24.c</p>
+      <p class="label">Input</p>
+      <pre class="io">5</pre>
+      <p class="label">Output</p>
+      <pre class="io">Enter a positive number: Factorial of 5 = 120</pre>
+      <details>
+        <summary>Source code <span>(68 lines)</span></summary>
+        <pre class="src">// Write a program to find the factorial of a number using recursion
+
+#include &lt;stdio.h&gt;
+
+/* A recursive function calls itself with a smaller value each time. */
+unsigned long long factorial(int n)
+{
+    if (n &lt;= 1)
+        return 1ULL; /* base case: 0! and 1! are both 1 */
+
+    return (unsigned long long)n * factorial(n - 1);
+}
+
+int main()
+{
+    int n;
+
+    printf("Enter a positive number: ");
+
+    if (scanf("%d", &amp;n) != 1 || n &lt; 0)
+    {
+        printf("Please enter a valid non-negative number.\n");
+        return 1;
+    }
+
+    printf("Factorial of %d = %llu\n", n, factorial(n));
+
+    return 0;
+}
+
+/*
+Explanation
+
+1. unsigned long long factorial(int n)
+
+A function that returns a very large positive number.
+unsigned long long is used because factorials grow very fast
+(20! is already bigger than a normal int can hold).
+
+2. Base case
+
+if (n &lt;= 1)
+    return 1ULL;
+
+Every recursive function must have a stopping condition,
+otherwise it would call itself forever.
+
+3. Recursive case
+
+return (unsigned long long)n * factorial(n - 1);
+
+factorial(5) -&gt; 5 * factorial(4)
+factorial(4) -&gt; 4 * factorial(3)
+factorial(3) -&gt; 3 * factorial(2)
+factorial(2) -&gt; 2 * factorial(1)
+factorial(1) -&gt; 1
+
+Answer: 5 * 4 * 3 * 2 * 1 = 120
+
+4. %llu
+
+The correct format specifier for unsigned long long.
+
+Complete Output
+
+Enter a positive number: 5
+Factorial of 5 = 120
+*/</pre>
+      </details>
+    </section>
+    <section id="p25">
+      <h2><span class="n">25</span>Check whether a number is prime using a function</h2>
+      <p class="fname">Program 25.c</p>
+      <p class="label">Input</p>
+      <pre class="io">17</pre>
+      <p class="label">Output</p>
+      <pre class="io">Enter a number: 17 is a prime number.</pre>
+      <details>
+        <summary>Source code <span>(71 lines)</span></summary>
+        <pre class="src">// Write a program to check whether a number is prime using a function
+
+#include &lt;stdio.h&gt;
+
+/* Returns 1 when the number is prime, otherwise 0. */
+int isPrime(int n)
+{
+    int i;
+
+    if (n &lt; 2)
+        return 0;
+
+    /* We only need to test up to the square root of n. */
+    for (i = 2; i * i &lt;= n; i++)
+    {
+        if (n % i == 0)
+            return 0; /* found a divisor, so it is not prime */
+    }
+
+    return 1;
+}
+
+int main()
+{
+    int num;
+
+    printf("Enter a number: ");
+    scanf("%d", &amp;num);
+
+    if (isPrime(num))
+        printf("%d is a prime number.\n", num);
+    else
+        printf("%d is not a prime number.\n", num);
+
+    return 0;
+}
+
+/*
+Explanation
+
+1. A prime number is greater than 1 and has only two factors: 1 and itself.
+
+Examples: 2, 3, 5, 7, 11, 13 ...
+
+2. int isPrime(int n)
+
+The function takes one integer and returns an int (1 = true, 0 = false).
+Splitting the logic into a function keeps main() short and readable.
+
+3. if (n &lt; 2) return 0;
+
+0 and 1 are not prime, and negative numbers are not prime either.
+
+4. for (i = 2; i * i &lt;= n; i++)
+
+We test divisors starting from 2.
+Testing up to n / 2 works, but testing up to the square root is much faster.
+Writing i * i &lt;= n avoids using the sqrt() function.
+
+5. if (n % i == 0) return 0;
+
+If any number divides n exactly, then n is not prime.
+
+Complete Output
+
+Enter a number: 17
+17 is a prime number.
+
+Enter a number: 18
+18 is not a prime number.
+*/</pre>
+      </details>
+    </section>
+    <section id="p26">
+      <h2><span class="n">26</span>Find the largest and smallest element of an array</h2>
+      <p class="fname">Program 26.c</p>
+      <p class="label">Input</p>
+      <pre class="io">5
+10 20 30 40 50</pre>
+      <p class="label">Output</p>
+      <pre class="io">How many elements? Element 1: Element 2: Element 3: Element 4: Element 5: 
+Largest  = 50
+Smallest = 10</pre>
+      <details>
+        <summary>Source code <span>(79 lines)</span></summary>
+        <pre class="src">// Write a program to find the largest and smallest element of an array
+
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int arr[100], n, i, largest, smallest;
+
+    printf("How many elements? ");
+    scanf("%d", &amp;n);
+
+    if (n &lt;= 0 || n &gt; 100)
+    {
+        printf("Please enter a size between 1 and 100.\n");
+        return 1;
+    }
+
+    for (i = 0; i &lt; n; i++)
+    {
+        printf("Element %d: ", i + 1);
+        scanf("%d", &amp;arr[i]);
+    }
+
+    /* Start with the first element and compare the rest against it. */
+    largest = arr[0];
+    smallest = arr[0];
+
+    for (i = 1; i &lt; n; i++)
+    {
+        if (arr[i] &gt; largest)
+            largest = arr[i];
+
+        if (arr[i] &lt; smallest)
+            smallest = arr[i];
+    }
+
+    printf("\nLargest  = %d\n", largest);
+    printf("Smallest = %d\n", smallest);
+
+    return 0;
+}
+
+/*
+Explanation
+
+1. int arr[100];
+
+An array stores many values of the same type under one name.
+arr[0] is the first element, arr[1] the second, and so on.
+Indexing always starts at 0, not 1.
+
+2. The input loop
+
+for (i = 0; i &lt; n; i++)
+
+Runs n times and stores each value at position i.
+
+3. largest = arr[0]; smallest = arr[0];
+
+The first element is the best guess so far for both.
+
+4. Comparing the rest
+
+Start the loop at i = 1, because index 0 is already the starting guess.
+Every time a bigger value appears, it becomes the new largest.
+Every time a smaller value appears, it becomes the new smallest.
+
+Complete Output
+
+How many elements? 5
+Element 1: 12
+Element 2: 4
+Element 3: 99
+Element 4: 7
+Element 5: 45
+
+Largest  = 99
+Smallest = 4
+*/</pre>
+      </details>
+    </section>
+    <section id="p27">
+      <h2><span class="n">27</span>Reverse an array in place</h2>
+      <p class="fname">Program 27.c</p>
+      <p class="label">Input</p>
+      <pre class="io">5
+10 20 30 40 50</pre>
+      <p class="label">Output</p>
+      <pre class="io">How many elements? Element 1: Element 2: Element 3: Element 4: Element 5: 
+Reversed array: 50 40 30 20 10 </pre>
+      <details>
+        <summary>Source code <span>(76 lines)</span></summary>
+        <pre class="src">// Write a program to reverse an array in place
+
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int arr[100], n, i, temp;
+
+    printf("How many elements? ");
+    scanf("%d", &amp;n);
+
+    if (n &lt;= 0 || n &gt; 100)
+    {
+        printf("Please enter a size between 1 and 100.\n");
+        return 1;
+    }
+
+    for (i = 0; i &lt; n; i++)
+    {
+        printf("Element %d: ", i + 1);
+        scanf("%d", &amp;arr[i]);
+    }
+
+    /* Swap the first with the last, the second with the second last, and so on. */
+    for (i = 0; i &lt; n / 2; i++)
+    {
+        temp = arr[i];
+        arr[i] = arr[n - 1 - i];
+        arr[n - 1 - i] = temp;
+    }
+
+    printf("\nReversed array: ");
+    for (i = 0; i &lt; n; i++)
+        printf("%d ", arr[i]);
+
+    printf("\n");
+
+    return 0;
+}
+
+/*
+Explanation
+
+1. Why only n / 2 rounds?
+
+In every round we fix two elements, one from the front and one from the back.
+When we reach the middle there is nothing left to swap.
+
+For n = 5 we only need 2 rounds (n / 2 = 2), the middle element stays as it is.
+
+2. arr[n - 1 - i]
+
+This mirrors index i to the other end of the array.
+
+    i = 0 -&gt; arr[4]  (last item)
+    i = 1 -&gt; arr[3]  (second last item)
+
+3. Swapping with a temporary variable
+
+temp      = arr[i];
+arr[i]    = arr[n - 1 - i];
+arr[n-1-i] = temp;
+
+The temporary variable is required, otherwise the first value is overwritten.
+
+Complete Output
+
+How many elements? 5
+Element 1: 10
+Element 2: 20
+Element 3: 30
+Element 4: 40
+Element 5: 50
+
+Reversed array: 50 40 30 20 10
+*/</pre>
+      </details>
+    </section>
+    <section id="p28">
+      <h2><span class="n">28</span>Find the length of a string and count its vowels and consonants</h2>
+      <p class="fname">Program 28.c</p>
+      <p class="label">Input</p>
+      <pre class="io">Hello C World</pre>
+      <p class="label">Output</p>
+      <pre class="io">Enter a sentence: 
+Length     = 13
+Vowels     = 3
+Consonants = 8</pre>
+      <details>
+        <summary>Source code <span>(82 lines)</span></summary>
+        <pre class="src">// Write a program to find the length of a string and count its vowels and consonants
+// without using strlen()
+
+#include &lt;stdio.h&gt;
+#include &lt;ctype.h&gt;
+
+int main()
+{
+    char str[200];
+    int i, length = 0, vowels = 0, consonants = 0;
+
+    printf("Enter a sentence: ");
+
+    if (fgets(str, sizeof(str), stdin) == NULL)
+        return 1;
+
+    /* Count characters until the null terminator '\0'. */
+    while (str[length] != '\0')
+        length++;
+
+    /* fgets keeps the newline at the end, so remove it. */
+    if (length &gt; 0 &amp;&amp; str[length - 1] == '\n')
+    {
+        str[length - 1] = '\0';
+        length--;
+    }
+
+    for (i = 0; i &lt; length; i++)
+    {
+        char ch = (char)tolower((unsigned char)str[i]);
+
+        if (ch &gt;= 'a' &amp;&amp; ch &lt;= 'z')
+        {
+            if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u')
+                vowels++;
+            else
+                consonants++;
+        }
+    }
+
+    printf("\nLength     = %d\n", length);
+    printf("Vowels     = %d\n", vowels);
+    printf("Consonants = %d\n", consonants);
+
+    return 0;
+}
+
+/*
+Explanation
+
+1. fgets(str, sizeof(str), stdin)
+
+Reads a full line, including spaces, which scanf("%s") cannot do.
+It also cannot overflow the array because the size is limited to 200.
+
+2. '\0'
+
+Every string in C ends with a null character.
+That is how the program knows where the text stops.
+
+3. while (str[length] != '\0') length++;
+
+Counts characters one by one without calling strlen().
+This shows how strlen() works internally.
+
+4. tolower()
+
+These come from &lt;ctype.h&gt;.
+tolower() makes 'A' and 'a' count the same, so we compare only lowercase letters.
+
+5. Only a to z are counted
+
+Digits, spaces and punctuation are skipped, so they are neither vowels nor consonants.
+
+Complete Output
+
+Enter a sentence: C Language Practice
+
+Length     = 19
+Vowels     = 7
+Consonants = 10
+*/</pre>
+      </details>
+    </section>
+    <section id="p29">
+      <h2><span class="n">29</span>Check whether a string is a palindrome</h2>
+      <p class="fname">Program 29.c</p>
+      <p class="label">Input</p>
+      <pre class="io">madam</pre>
+      <p class="label">Output</p>
+      <pre class="io">Enter a word: "madam" is a palindrome.</pre>
+      <details>
+        <summary>Source code <span>(66 lines)</span></summary>
+        <pre class="src">// Write a program to check whether a string is a palindrome
+
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+    char str[200];
+    int i, j, isPalindrome = 1;
+
+    printf("Enter a word: ");
+    scanf("%199s", str);
+
+    /* Compare the first character with the last, then move inwards. */
+    for (i = 0, j = (int)strlen(str) - 1; i &lt; j; i++, j--)
+    {
+        if (str[i] != str[j])
+        {
+            isPalindrome = 0;
+            break;
+        }
+    }
+
+    if (isPalindrome)
+        printf("\"%s\" is a palindrome.\n", str);
+    else
+        printf("\"%s\" is not a palindrome.\n", str);
+
+    return 0;
+}
+
+/*
+Explanation
+
+1. A palindrome reads the same forwards and backwards.
+
+    madam  -&gt; palindrome
+    level  -&gt; palindrome
+    hello  -&gt; not a palindrome
+
+2. i = 0, j = strlen(str) - 1
+
+i starts at the first character, j starts at the last one.
+
+3. i &lt; j
+
+We stop when the two indexes meet in the middle.
+If we kept going we would compare the same pairs twice.
+
+4. str[i] != str[j]
+
+The moment two mirrored characters differ, the word is not a palindrome,
+so we set the flag to 0 and break out of the loop early.
+
+5. scanf("%199s", str)
+
+199 limits the input to 199 characters so the 200 byte array cannot overflow.
+
+Complete Output
+
+Enter a word: madam
+"madam" is a palindrome.
+
+Enter a word: hello
+"hello" is not a palindrome.
+*/</pre>
+      </details>
+    </section>
+    <section id="p30">
+      <h2><span class="n">30</span>Swap two numbers using pointers</h2>
+      <p class="fname">Program 30.c</p>
+      <p class="label">Input</p>
+      <pre class="io">20
+10</pre>
+      <p class="label">Output</p>
+      <pre class="io">Enter first number : Enter second number: 
+Before swap: x = 20, y = 10
+After swap : x = 10, y = 20</pre>
+      <details>
+        <summary>Source code <span>(73 lines)</span></summary>
+        <pre class="src">// Write a program to swap two numbers using pointers
+
+#include &lt;stdio.h&gt;
+
+/* Receives the addresses of two integers. */
+void swap(int *a, int *b)
+{
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
+int main()
+{
+    int x, y;
+
+    printf("Enter first number : ");
+    scanf("%d", &amp;x);
+
+    printf("Enter second number: ");
+    scanf("%d", &amp;y);
+
+    printf("\nBefore swap: x = %d, y = %d\n", x, y);
+
+    swap(&amp;x, &amp;y);
+
+    printf("After swap : x = %d, y = %d\n", x, y);
+
+    return 0;
+}
+
+/*
+Explanation
+
+1. &amp;x and &amp;y
+
+&amp; gives the address of a variable.
+So swap(&amp;x, &amp;y) sends the addresses, not the values.
+
+2. int *a, int *b
+
+A pointer stores an address.
+*a means "the value stored at the address a points to".
+
+3. Why a pointer is needed
+
+In C, function arguments are passed by value.
+A normal function such as swap(int a, int b) receives copies,
+so changing a and b inside the function would not change x and y.
+
+By passing addresses we let the function change the original variables.
+This is called passing by reference.
+
+4. *a = *b;
+
+Copies the value that b points to into the place a points to.
+
+5. A temporary variable is still required
+
+temp = *a;
+*a   = *b;
+*b   = temp;
+
+Without temp the first value would be lost.
+
+Complete Output
+
+Enter first number : 10
+Enter second number: 20
+
+Before swap: x = 10, y = 20
+After swap : x = 20, y = 10
+*/</pre>
+      </details>
+    </section>
+    <section id="p31">
+      <h2><span class="n">31</span>Store and display student details using a structure</h2>
+      <p class="fname">Program 31.c</p>
+      <p class="label">Input</p>
+      <pre class="io">101
+Bhavik Pandit
+88.5</pre>
+      <p class="label">Output</p>
+      <pre class="io">Enter roll number: Enter name: Enter marks: 
+--- Student Record ---
+Roll  : 101
+Name  : Bhavik Pandit
+Marks : 88.50</pre>
+      <details>
+        <summary>Source code <span>(75 lines)</span></summary>
+        <pre class="src">// Write a program to store and display student details using a structure
+
+#include &lt;stdio.h&gt;
+
+/* A structure groups variables of different types under one name. */
+struct Student
+{
+    int roll;
+    char name[50];
+    float marks;
+};
+
+int main()
+{
+    struct Student s;
+
+    printf("Enter roll number: ");
+    scanf("%d", &amp;s.roll);
+
+    printf("Enter name: ");
+    scanf(" %49[^\n]", s.name); /* read a full line including spaces */
+
+    printf("Enter marks: ");
+    scanf("%f", &amp;s.marks);
+
+    printf("\n--- Student Record ---\n");
+    printf("Roll  : %d\n", s.roll);
+    printf("Name  : %s\n", s.name);
+    printf("Marks : %.2f\n", s.marks);
+
+    return 0;
+}
+
+/*
+Explanation
+
+1. struct Student { ... };
+
+A structure is a user defined data type.
+Here it holds an int, a char array and a float together,
+which is exactly what a student record needs.
+
+2. struct Student s;
+
+Creates one variable of type struct Student.
+
+3. The dot operator
+
+s.roll  -&gt; the roll number
+s.name  -&gt; the name
+s.marks -&gt; the marks
+
+The dot is used to reach a member of a structure.
+
+4. scanf(" %49[^\n]", s.name);
+
+The leading space skips any leftover newline.
+%49[^\n] reads up to 49 characters until a newline is reached,
+so names with spaces such as "Bhavik Pandit" work correctly.
+
+5. %.2f
+
+Prints the marks with exactly two digits after the decimal point.
+
+Complete Output
+
+Enter roll number: 12
+Enter name: Bhavik Pandit
+Enter marks: 87.5
+
+--- Student Record ---
+Roll  : 12
+Name  : Bhavik Pandit
+Marks : 87.50
+*/</pre>
+      </details>
+    </section>
+    <section id="p32">
+      <h2><span class="n">32</span>Write data to a file and then read it back</h2>
+      <p class="fname">Program 32.c</p>
+      <p class="label">Input</p>
+      <p class="none">None &mdash; the program takes no input.</p>
+      <p class="label">Output</p>
+      <pre class="io">Contents of notes.txt:
+
+C Language Practice
+File handling demo</pre>
+      <details>
+        <summary>Source code <span>(88 lines)</span></summary>
+        <pre class="src">// Write a program to write data to a file and then read it back
+
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    FILE *fp;
+    char line[200];
+
+    /* ---------- 1. Write to the file ---------- */
+    fp = fopen("notes.txt", "w");
+
+    if (fp == NULL)
+    {
+        printf("Could not create the file.\n");
+        return 1;
+    }
+
+    fprintf(fp, "C Language Practice\n");
+    fprintf(fp, "File handling demo\n");
+
+    fclose(fp);
+
+    /* ---------- 2. Read the file back ---------- */
+    fp = fopen("notes.txt", "r");
+
+    if (fp == NULL)
+    {
+        printf("Could not open the file.\n");
+        return 1;
+    }
+
+    printf("Contents of notes.txt:\n\n");
+
+    while (fgets(line, sizeof(line), fp) != NULL)
+        printf("%s", line);
+
+    fclose(fp);
+
+    return 0;
+}
+
+/*
+Explanation
+
+1. FILE *fp;
+
+A file pointer is used to work with a file.
+All file functions need it.
+
+2. fopen("notes.txt", "w");
+
+Opens the file in write mode.
+"w" creates the file if it does not exist, or empties it if it does.
+
+Other common modes:
+
+    "r"  -&gt; read only, the file must already exist
+    "a"  -&gt; append, new data is added at the end
+    "rb" -&gt; read in binary mode
+
+3. if (fp == NULL)
+
+fopen() returns NULL when the file cannot be opened,
+for example because of a wrong path or missing permission.
+Always check this before using the file.
+
+4. fprintf(fp, ...);
+
+Works like printf(), but writes into the file instead of the screen.
+
+5. fclose(fp);
+
+Closes the file and saves the data.
+Forgetting this can lose the contents, so every fopen() needs a matching fclose().
+
+6. while (fgets(line, sizeof(line), fp) != NULL)
+
+Reads the file one line at a time until the end.
+fgets() returns NULL when there is nothing left to read.
+
+Complete Output
+
+Contents of notes.txt:
+
+C Language Practice
+File handling demo
+*/</pre>
+      </details>
+    </section>
+    <section id="p33">
+      <h2><span class="n">33</span>Print the Fibonacci series up to N terms</h2>
+      <p class="fname">Program 33.c</p>
+      <p class="label">Input</p>
+      <pre class="io">8</pre>
+      <p class="label">Output</p>
+      <pre class="io">How many terms? Fibonacci series: 0 1 1 2 3 5 8 13 </pre>
+      <details>
+        <summary>Source code <span>(65 lines)</span></summary>
+        <pre class="src">// Write a program to print the Fibonacci series up to N terms
+
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int n, i;
+    long long a = 0, b = 1, next;
+
+    printf("How many terms? ");
+    scanf("%d", &amp;n);
+
+    if (n &lt;= 0)
+    {
+        printf("Please enter a positive number.\n");
+        return 1;
+    }
+
+    printf("Fibonacci series: ");
+
+    for (i = 1; i &lt;= n; i++)
+    {
+        printf("%lld ", a);
+        next = a + b; /* the next term is the sum of the previous two */
+        a = b;
+        b = next;
+    }
+
+    printf("\n");
+
+    return 0;
+}
+
+/*
+Explanation
+
+1. The Fibonacci series starts with 0 and 1.
+Every following term is the sum of the two terms before it.
+
+    0, 1, 1, 2, 3, 5, 8, 13, 21, ...
+
+2. long long a = 0, b = 1;
+
+a holds the current term and b holds the next one.
+long long is used because the values grow quickly.
+
+3. next = a + b;
+
+Calculates the following term.
+
+4. a = b;
+   b = next;
+
+Shifts both variables forward by one step.
+The order matters: a must be updated before b, using the saved value in next.
+
+5. %lld
+
+The format specifier for a long long integer.
+
+Complete Output
+
+How many terms? 8
+Fibonacci series: 0 1 1 2 3 5 8 13
+*/</pre>
+      </details>
+    </section>
+    <section id="p34">
+      <h2><span class="n">34</span>Find the largest of three numbers</h2>
+      <p class="fname">Program 34.c</p>
+      <p class="label">Input</p>
+      <pre class="io">3 9 5</pre>
+      <p class="label">Output</p>
+      <pre class="io">Enter three numbers: 9 is the largest.</pre>
+      <details>
+        <summary>Source code <span>(52 lines)</span></summary>
+        <pre class="src">// Write a program to find the largest of three numbers
+
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int a, b, c;
+
+    printf("Enter three numbers: ");
+    scanf("%d %d %d", &amp;a, &amp;b, &amp;c);
+
+    if (a &gt;= b &amp;&amp; a &gt;= c)
+        printf("%d is the largest.\n", a);
+    else if (b &gt;= a &amp;&amp; b &gt;= c)
+        printf("%d is the largest.\n", b);
+    else
+        printf("%d is the largest.\n", c);
+
+    return 0;
+}
+
+/*
+Explanation
+
+1. &amp;&amp; is the AND operator
+
+a &gt;= b &amp;&amp; a &gt;= c
+
+Both conditions must be true for the whole expression to be true.
+So this asks: "is a at least as big as b AND at least as big as c?"
+
+2. Why &gt;= instead of &gt;
+
+With &gt;, entering 7 7 3 would fail every branch and print a wrong answer.
+Using &gt;= makes ties fall into the first matching branch.
+
+3. The if-else ladder
+
+Only one branch can run.
+The first branch that is true wins, so we never test the rest.
+
+4. Test yourself
+
+    10 4 7   -&gt; 10 is the largest.
+    7  7  3  -&gt; 7 is the largest.
+    2  5  9  -&gt; 9 is the largest.
+
+Complete Output
+
+Enter three numbers: 10 4 7
+10 is the largest.
+*/</pre>
+      </details>
+    </section>
+    <section id="p35">
+      <h2><span class="n">35</span>Make a simple calculator using the switch statement</h2>
+      <p class="fname">Program 35.c</p>
+      <p class="label">Input</p>
+      <pre class="io">12 + 5</pre>
+      <p class="label">Output</p>
+      <pre class="io">Enter an expression (for example 12 + 5): 12.00 + 5.00 = 17.00</pre>
+      <details>
+        <summary>Source code <span>(85 lines)</span></summary>
+        <pre class="src">// Write a program to make a simple calculator using the switch statement
+
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    double a, b;
+    char op;
+
+    printf("Enter an expression (for example 12 + 5): ");
+
+    if (scanf("%lf %c %lf", &amp;a, &amp;op, &amp;b) != 3)
+    {
+        printf("Invalid input.\n");
+        return 1;
+    }
+
+    switch (op)
+    {
+        case '+':
+            printf("%.2lf + %.2lf = %.2lf\n", a, b, a + b);
+            break;
+
+        case '-':
+            printf("%.2lf - %.2lf = %.2lf\n", a, b, a - b);
+            break;
+
+        case '*':
+            printf("%.2lf * %.2lf = %.2lf\n", a, b, a * b);
+            break;
+
+        case '/':
+            if (b == 0)
+                printf("Error: division by zero is not allowed.\n");
+            else
+                printf("%.2lf / %.2lf = %.2lf\n", a, b, a / b);
+            break;
+
+        default:
+            printf("Unknown operator '%c'.\n", op);
+    }
+
+    return 0;
+}
+
+/*
+Explanation
+
+1. switch (op)
+
+switch compares one value against several fixed cases.
+It is a cleaner alternative to a long if-else ladder when you are
+testing a single character or integer.
+
+2. case '+':
+
+If op equals '+', execution jumps here.
+
+3. break;
+
+break leaves the switch.
+Without it, execution "falls through" and the next case also runs,
+which is almost always a bug.
+
+4. default:
+
+Runs when no case matched, for example when the user types 'x'.
+
+5. Division by zero
+
+Dividing a double by 0 does not crash, but the result is meaningless,
+so we check for it before dividing.
+
+6. %lf
+
+Used with double in both scanf() and printf().
+
+Complete Output
+
+Enter an expression (for example 12 + 5): 12 + 5
+12.00 + 5.00 = 17.00
+
+Enter an expression (for example 12 + 5): 12 / 0
+Error: division by zero is not allowed.
+*/</pre>
+      </details>
+    </section>
+    <section id="p36">
+      <h2><span class="n">36</span>Check whether a character is a vowel or a consonant using switch</h2>
+      <p class="fname">Program 36.c</p>
+      <p class="label">Input</p>
+      <pre class="io">g</pre>
+      <p class="label">Output</p>
+      <pre class="io">Enter an alphabet: 'g' is a consonant.</pre>
+      <details>
+        <summary>Source code <span>(78 lines)</span></summary>
+        <pre class="src">// Write a program to check whether a character is a vowel or a consonant using switch
+
+#include &lt;stdio.h&gt;
+#include &lt;ctype.h&gt;
+
+int main()
+{
+    char ch, lower;
+
+    printf("Enter an alphabet: ");
+
+    if (scanf(" %c", &amp;ch) != 1)
+        return 1;
+
+    lower = (char)tolower((unsigned char)ch);
+
+    if (lower &lt; 'a' || lower &gt; 'z')
+    {
+        printf("'%c' is not an alphabet.\n", ch);
+        return 1;
+    }
+
+    switch (lower)
+    {
+        case 'a':
+        case 'e':
+        case 'i':
+        case 'o':
+        case 'u':
+            printf("'%c' is a vowel.\n", ch);
+            break;
+
+        default:
+            printf("'%c' is a consonant.\n", ch);
+    }
+
+    return 0;
+}
+
+/*
+Explanation
+
+1. tolower()
+
+Makes 'A' and 'a' behave the same, so we only have to test lowercase letters.
+The (unsigned char) cast prevents undefined behaviour for non-ASCII input.
+
+2. Stacked case labels without break
+
+case 'a':
+case 'e':
+case 'i':
+case 'o':
+case 'u':
+
+All five labels share one block of code.
+This is called fall-through, and here it is intentional.
+
+3. Range check
+
+lower &lt; 'a' || lower &gt; 'z' catches digits, symbols and spaces,
+so the program does not wrongly call '7' a consonant.
+
+4. scanf(" %c", &amp;ch)
+
+The space before %c skips any leftover newline from earlier input.
+
+Complete Output
+
+Enter an alphabet: A
+'A' is a vowel.
+
+Enter an alphabet: z
+'z' is a consonant.
+
+Enter an alphabet: 7
+'7' is not an alphabet.
+*/</pre>
+      </details>
+    </section>
+    <section id="p37">
+      <h2><span class="n">37</span>Reverse a number</h2>
+      <p class="fname">Program 37.c</p>
+      <p class="label">Input</p>
+      <pre class="io">12345</pre>
+      <p class="label">Output</p>
+      <pre class="io">Enter a number: Reverse of 12345 = 54321</pre>
+      <details>
+        <summary>Source code <span>(67 lines)</span></summary>
+        <pre class="src">// Write a program to reverse a number
+
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    long long num, original, reversed = 0;
+    int digit;
+
+    printf("Enter a number: ");
+    scanf("%lld", &amp;num);
+
+    original = num;
+
+    if (num &lt; 0)
+        num = -num;
+
+    while (num &gt; 0)
+    {
+        digit = (int)(num % 10);          /* last digit */
+        reversed = reversed * 10 + digit;
+        num = num / 10;                   /* drop the last digit */
+    }
+
+    if (original &lt; 0)
+        reversed = -reversed;
+
+    printf("Reverse of %lld = %lld\n", original, reversed);
+
+    return 0;
+}
+
+/*
+Explanation
+
+1. reversed = reversed * 10 + digit;
+
+This is the key line.
+Multiplying by 10 shifts the existing digits one place to the left,
+then adding the new digit puts it in the units place.
+
+For 123:
+
+    round 1 -&gt; digit 3, reversed = 0 * 10 + 3     = 3
+    round 2 -&gt; digit 2, reversed = 3 * 10 + 2     = 32
+    round 3 -&gt; digit 1, reversed = 32 * 10 + 1    = 321
+
+2. Why long long
+
+The reversed value is built up to the same size as the input,
+and large inputs overflow a normal int. 1000000000 reversed is 1,
+but 1234567890123 needs more than 32 bits.
+
+3. Negative numbers
+
+The sign is removed first, the digits are reversed, and then the sign is
+put back. Otherwise -12 would reverse to -21 through a greedy remainder.
+
+4. %lld
+
+The format specifier for long long.
+
+Complete Output
+
+Enter a number: 1234
+Reverse of 1234 = 4321
+*/</pre>
+      </details>
+    </section>
+    <section id="p38">
+      <h2><span class="n">38</span>Check whether a number is a palindrome</h2>
+      <p class="fname">Program 38.c</p>
+      <p class="label">Input</p>
+      <pre class="io">121</pre>
+      <p class="label">Output</p>
+      <pre class="io">Enter a number: 121 is a palindrome.</pre>
+      <details>
+        <summary>Source code <span>(67 lines)</span></summary>
+        <pre class="src">// Write a program to check whether a number is a palindrome
+
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    long long num, original, reversed = 0;
+    int digit;
+
+    printf("Enter a number: ");
+    scanf("%lld", &amp;num);
+
+    if (num &lt; 0)
+    {
+        printf("Please enter a non-negative number.\n");
+        return 1;
+    }
+
+    original = num;
+
+    while (num &gt; 0)
+    {
+        digit = (int)(num % 10);
+        reversed = reversed * 10 + digit;
+        num = num / 10;
+    }
+
+    if (original == reversed)
+        printf("%lld is a palindrome.\n", original);
+    else
+        printf("%lld is not a palindrome.\n", original);
+
+    return 0;
+}
+
+/*
+Explanation
+
+1. A palindrome number reads the same forwards and backwards.
+
+    121     -&gt; palindrome
+    4554    -&gt; palindrome
+    1234    -&gt; not a palindrome
+
+2. Reversing the number
+
+The same technique as Program 37:
+pick the last digit, push it onto reversed, then drop it.
+
+3. Comparing
+
+original keeps the value the user typed, because the while loop destroys num.
+Finally we compare original with reversed.
+
+4. Why compare numbers and not strings
+
+Both ways work. Working with digits avoids text conversion and shows how
+the same logic from Program 29 can be reused on integers.
+
+Complete Output
+
+Enter a number: 1221
+1221 is a palindrome.
+
+Enter a number: 1234
+1234 is not a palindrome.
+*/</pre>
+      </details>
+    </section>
+    <section id="p39">
+      <h2><span class="n">39</span>Check whether a number is an Armstrong number</h2>
+      <p class="fname">Program 39.c</p>
+      <p class="label">Input</p>
+      <pre class="io">153</pre>
+      <p class="label">Output</p>
+      <pre class="io">Enter a number: 153 is an Armstrong number.</pre>
+      <details>
+        <summary>Source code <span>(84 lines)</span></summary>
+        <pre class="src">// Write a program to check whether a number is an Armstrong number
+
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    long long num, original, temp, remainder, sum = 0, digits = 0;
+    long long power, i;
+
+    printf("Enter a number: ");
+    scanf("%lld", &amp;num);
+
+    if (num &lt; 0)
+    {
+        printf("Please enter a non-negative number.\n");
+        return 1;
+    }
+
+    original = num;
+
+    /* Step 1: count how many digits the number has. */
+    temp = num;
+    do
+    {
+        digits++;
+        temp = temp / 10;
+    } while (temp &gt; 0);
+
+    /* Step 2: raise every digit to the power of the digit count and add them. */
+    temp = num;
+    while (temp &gt; 0)
+    {
+        remainder = temp % 10;
+
+        power = 1;
+        for (i = 0; i &lt; digits; i++)
+            power = power * remainder;
+
+        sum = sum + power;
+        temp = temp / 10;
+    }
+
+    if (sum == original)
+        printf("%lld is an Armstrong number.\n", original);
+    else
+        printf("%lld is not an Armstrong number.\n", original);
+
+    return 0;
+}
+
+/*
+Explanation
+
+1. What is an Armstrong number?
+
+A number equals the sum of its digits, each raised to the power of the
+number of digits.
+
+    153  has 3 digits:  1^3 + 5^3 + 3^3 = 1 + 125 + 27 = 153  -&gt; Armstrong
+    1634 has 4 digits:  1^4 + 6^4 + 3^4 + 4^4 = 1634          -&gt; Armstrong
+
+2. Counting digits
+
+The do-while loop keeps dividing by 10 until nothing is left.
+It is a do-while because 0 still has one digit.
+
+3. The inner for loop
+
+C has no ** operator for integers, so the power is built with repeated
+multiplication: 5^3 becomes 5 * 5 * 5.
+
+4. sum == original
+
+original is saved before the multiplication steps because both loops
+destroy the value stored in num / temp.
+
+Complete Output
+
+Enter a number: 153
+153 is an Armstrong number.
+
+Enter a number: 100
+100 is not an Armstrong number.
+*/</pre>
+      </details>
+    </section>
+    <section id="p40">
+      <h2><span class="n">40</span>Print all prime numbers between two numbers</h2>
+      <p class="fname">Program 40.c</p>
+      <p class="label">Input</p>
+      <pre class="io">1
+20</pre>
+      <p class="label">Output</p>
+      <pre class="io">Enter start and end: Prime numbers between 1 and 20: 2 3 5 7 11 13 17 19 </pre>
+      <details>
+        <summary>Source code <span>(84 lines)</span></summary>
+        <pre class="src">// Write a program to print all prime numbers between two numbers
+
+#include &lt;stdio.h&gt;
+
+/* Returns 1 when the number is prime, otherwise 0. */
+int isPrime(int n)
+{
+    int i;
+
+    if (n &lt; 2)
+        return 0;
+
+    for (i = 2; i * i &lt;= n; i++)
+    {
+        if (n % i == 0)
+            return 0;
+    }
+
+    return 1;
+}
+
+int main()
+{
+    int start, end, i, found = 0;
+
+    printf("Enter start and end: ");
+    scanf("%d %d", &amp;start, &amp;end);
+
+    /* Allow the user to type the range in either order. */
+    if (start &gt; end)
+    {
+        int temp = start;
+        start = end;
+        end = temp;
+    }
+
+    printf("Prime numbers between %d and %d: ", start, end);
+
+    for (i = start; i &lt;= end; i++)
+    {
+        if (isPrime(i))
+        {
+            printf("%d ", i);
+            found = 1;
+        }
+    }
+
+    if (!found)
+        printf("none");
+
+    printf("\n");
+
+    return 0;
+}
+
+/*
+Explanation
+
+1. Reusing the function
+
+isPrime() is the same idea as Program 25.
+Putting it in a function means main() only has to loop and print.
+
+2. The range loop
+
+for (i = start; i &lt;= end; i++)
+
+We call isPrime() once for every number in the range.
+
+3. Swapping start and end
+
+If the user types 50 10, swapping makes the loop work anyway.
+A temporary variable is needed to swap two values.
+
+4. found
+
+Starts at 0 and becomes 1 as soon as anything is printed.
+If it is still 0 at the end, the range had no primes and we say so.
+
+Complete Output
+
+Enter start and end: 10 30
+Prime numbers between 10 and 30: 11 13 17 19 23 29
+*/</pre>
+      </details>
+    </section>
+    <section id="p41">
+      <h2><span class="n">41</span>Find the GCD and LCM of two numbers</h2>
+      <p class="fname">Program 41.c</p>
+      <p class="label">Input</p>
+      <pre class="io">36
+24</pre>
+      <p class="label">Output</p>
+      <pre class="io">Enter two positive numbers: GCD of 36 and 24 = 12
+LCM of 36 and 24 = 72</pre>
+      <details>
+        <summary>Source code <span>(74 lines)</span></summary>
+        <pre class="src">// Write a program to find the GCD and LCM of two numbers
+
+#include &lt;stdio.h&gt;
+
+/* Euclid's algorithm: keep replacing (a, b) with (b, a % b). */
+int gcd(int a, int b)
+{
+    int temp;
+
+    while (b != 0)
+    {
+        temp = b;
+        b = a % b;
+        a = temp;
+    }
+
+    return a;
+}
+
+int main()
+{
+    int a, b, g;
+
+    printf("Enter two positive numbers: ");
+    scanf("%d %d", &amp;a, &amp;b);
+
+    if (a &lt;= 0 || b &lt;= 0)
+    {
+        printf("Both numbers must be positive.\n");
+        return 1;
+    }
+
+    g = gcd(a, b);
+
+    printf("GCD of %d and %d = %d\n", a, b, g);
+    printf("LCM of %d and %d = %d\n", a, b, (a / g) * b);
+
+    return 0;
+}
+
+/*
+Explanation
+
+1. GCD (Greatest Common Divisor)
+
+The largest number that divides both values exactly.
+GCD(36, 24) = 12
+
+2. Euclid's algorithm
+
+    a = 36, b = 24
+    a % b = 12   -&gt;  (a, b) becomes (24, 12)
+    24 % 12 = 0  -&gt;  (a, b) becomes (12, 0)
+    b is 0, so the answer is 12
+
+It finishes very quickly even for huge numbers.
+
+3. LCM from GCD
+
+LCM(a, b) = (a / b) * b   -- but written as (a / gcd) * b.
+
+Why divide first? Because a * b can overflow an int for large inputs,
+while a / gcd is exactly divisible and much smaller.
+
+4. Integer division
+
+a / g is exact by definition of a common divisor, so no precision is lost.
+
+Complete Output
+
+Enter two positive numbers: 36 24
+GCD of 36 and 24 = 12
+LCM of 36 and 24 = 72
+*/</pre>
+      </details>
+    </section>
+    <section id="p42">
+      <h2><span class="n">42</span>Sort an array using bubble sort</h2>
+      <p class="fname">Program 42.c</p>
+      <p class="label">Input</p>
+      <pre class="io">5
+5 3 8 1 9</pre>
+      <p class="label">Output</p>
+      <pre class="io">How many elements? Element 1: Element 2: Element 3: Element 4: Element 5: Sorted array: 1 3 5 8 9 </pre>
+      <details>
+        <summary>Source code <span>(84 lines)</span></summary>
+        <pre class="src">// Write a program to sort an array using bubble sort
+
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int arr[100], n, i, j, temp;
+
+    printf("How many elements? ");
+    scanf("%d", &amp;n);
+
+    if (n &lt;= 0 || n &gt; 100)
+    {
+        printf("Please enter a size between 1 and 100.\n");
+        return 1;
+    }
+
+    for (i = 0; i &lt; n; i++)
+    {
+        printf("Element %d: ", i + 1);
+        scanf("%d", &amp;arr[i]);
+    }
+
+    for (i = 0; i &lt; n - 1; i++)
+    {
+        for (j = 0; j &lt; n - 1 - i; j++)
+        {
+            if (arr[j] &gt; arr[j + 1])
+            {
+                temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
+        }
+    }
+
+    printf("Sorted array: ");
+    for (i = 0; i &lt; n; i++)
+        printf("%d ", arr[i]);
+
+    printf("\n");
+
+    return 0;
+}
+
+/*
+Explanation
+
+1. How bubble sort works
+
+Compare each pair of neighbours. If they are in the wrong order, swap them.
+After one full pass the biggest value has "bubbled" to the end.
+
+2. for (i = 0; i &lt; n - 1; i++)
+
+The outer loop counts the passes.
+n elements need at most n - 1 passes to be sorted.
+
+3. for (j = 0; j &lt; n - 1 - i; j++)
+
+The inner loop does the comparisons.
+The - i part matters: after pass i the last i elements are already in place,
+so there is no need to look at them again.
+
+4. Swapping
+
+Three statements with a temporary variable, the same swap used in
+Program 27 and Program 30.
+
+5. Complexity
+
+Bubble sort is O(n^2), which is slow for large arrays.
+It is still taught first because the logic is easy to follow.
+
+Complete Output
+
+How many elements? 5
+Element 1: 5
+Element 2: 1
+Element 3: 4
+Element 4: 2
+Element 5: 8
+Sorted array: 1 2 4 5 8
+*/</pre>
+      </details>
+    </section>
+    <section id="p43">
+      <h2><span class="n">43</span>Search for a value in a sorted array using binary search</h2>
+      <p class="fname">Program 43.c</p>
+      <p class="label">Input</p>
+      <pre class="io">5
+10 20 30 40 50
+30</pre>
+      <p class="label">Output</p>
+      <pre class="io">How many elements? Enter the elements in sorted (ascending) order:
+Element 1: Element 2: Element 3: Element 4: Element 5: Enter the value to search: 30 found at position 3 (index 2).</pre>
+      <details>
+        <summary>Source code <span>(99 lines)</span></summary>
+        <pre class="src">// Write a program to search for a value in a sorted array using binary search
+
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int arr[100], n, i, key;
+    int low, high, mid, found = -1;
+
+    printf("How many elements? ");
+    scanf("%d", &amp;n);
+
+    if (n &lt;= 0 || n &gt; 100)
+    {
+        printf("Please enter a size between 1 and 100.\n");
+        return 1;
+    }
+
+    printf("Enter the elements in sorted (ascending) order:\n");
+    for (i = 0; i &lt; n; i++)
+    {
+        printf("Element %d: ", i + 1);
+        scanf("%d", &amp;arr[i]);
+    }
+
+    printf("Enter the value to search: ");
+    scanf("%d", &amp;key);
+
+    low = 0;
+    high = n - 1;
+
+    while (low &lt;= high)
+    {
+        mid = low + (high - low) / 2;
+
+        if (arr[mid] == key)
+        {
+            found = mid;
+            break;
+        }
+        else if (arr[mid] &lt; key)
+        {
+            low = mid + 1;   /* the value must be on the right */
+        }
+        else
+        {
+            high = mid - 1;  /* the value must be on the left */
+        }
+    }
+
+    if (found &gt;= 0)
+        printf("%d found at position %d (index %d).\n", key, found + 1, found);
+    else
+        printf("%d was not found in the array.\n", key);
+
+    return 0;
+}
+
+/*
+Explanation
+
+1. Binary search needs a sorted array
+
+Because the data is sorted, we can throw away half of it with one comparison.
+
+2. mid = low + (high - low) / 2;
+
+This finds the middle index.
+Writing it this way instead of (low + high) / 2 avoids integer overflow on
+very large arrays.
+
+3. The three cases
+
+    arr[mid] == key  -&gt; found it, stop
+    arr[mid] &lt;  key  -&gt; search the right half  (low  = mid + 1)
+    arr[mid] &gt;  key  -&gt; search the left half   (high = mid - 1)
+
+4. while (low &lt;= high)
+
+When low passes high, the search space is empty and the value is not there.
+
+5. Speed
+
+Each step halves the array, so binary search is O(log n).
+For 1,000,000 elements it needs at most about 20 comparisons, while a
+linear search could need 1,000,000.
+
+Complete Output
+
+How many elements? 6
+Element 1: 2
+Element 2: 4
+Element 3: 6
+Element 4: 8
+Element 5: 10
+Element 6: 12
+Enter the value to search: 8
+8 found at position 4 (index 3).
+*/</pre>
+      </details>
+    </section>
+    <section id="p44">
+      <h2><span class="n">44</span>Add two 3x3 matrices using a 2D array</h2>
+      <p class="fname">Program 44.c</p>
+      <p class="label">Input</p>
+      <pre class="io">1 2 3
+4 5 6
+7 8 9
+9 8 7
+6 5 4
+3 2 1</pre>
+      <p class="label">Output</p>
+      <pre class="io">Enter matrix A (3 x 3):
+Enter matrix B (3 x 3):
+
+Matrix A:
+   1   2   3
+   4   5   6
+   7   8   9
+
+Matrix B:
+   9   8   7
+   6   5   4
+   3   2   1
+
+A + B:
+  10  10  10
+  10  10  10
+  10  10  10</pre>
+      <details>
+        <summary>Source code <span>(101 lines)</span></summary>
+        <pre class="src">// Write a program to add two 3x3 matrices using a 2D array
+
+#include &lt;stdio.h&gt;
+
+#define ROWS 3
+#define COLS 3
+
+int main()
+{
+    int a[ROWS][COLS], b[ROWS][COLS], sum[ROWS][COLS];
+    int i, j;
+
+    printf("Enter matrix A (%d x %d):\n", ROWS, COLS);
+    for (i = 0; i &lt; ROWS; i++)
+        for (j = 0; j &lt; COLS; j++)
+            scanf("%d", &amp;a[i][j]);
+
+    printf("Enter matrix B (%d x %d):\n", ROWS, COLS);
+    for (i = 0; i &lt; ROWS; i++)
+        for (j = 0; j &lt; COLS; j++)
+            scanf("%d", &amp;b[i][j]);
+
+    for (i = 0; i &lt; ROWS; i++)
+        for (j = 0; j &lt; COLS; j++)
+            sum[i][j] = a[i][j] + b[i][j];
+
+    printf("\nMatrix A:\n");
+    for (i = 0; i &lt; ROWS; i++)
+    {
+        for (j = 0; j &lt; COLS; j++)
+            printf("%4d", a[i][j]);
+        printf("\n");
+    }
+
+    printf("\nMatrix B:\n");
+    for (i = 0; i &lt; ROWS; i++)
+    {
+        for (j = 0; j &lt; COLS; j++)
+            printf("%4d", b[i][j]);
+        printf("\n");
+    }
+
+    printf("\nA + B:\n");
+    for (i = 0; i &lt; ROWS; i++)
+    {
+        for (j = 0; j &lt; COLS; j++)
+            printf("%4d", sum[i][j]);
+        printf("\n");
+    }
+
+    return 0;
+}
+
+/*
+Explanation
+
+1. int a[ROWS][COLS];
+
+A 2D array is an array of arrays.
+a[i][j] means row i and column j.
+Both indexes start at 0, so a 3x3 matrix uses indexes 0..2.
+
+2. Nested loops
+
+The outer loop walks the rows, the inner loop walks the columns.
+Two loops are needed because there are two dimensions.
+
+3. Adding matrices
+
+Position by position:
+
+    sum[i][j] = a[i][j] + b[i][j]
+
+Both matrices must have the same size, otherwise the addition is undefined.
+
+4. printf("%4d", value);
+
+Prints each number in a 4 character wide field so the columns line up
+and the result looks like a real matrix.
+
+5. #define
+
+#define ROWS 3 creates a constant that the compiler substitutes before compiling.
+Changing the size in one place updates every loop in the program.
+
+Complete Output
+
+Enter matrix A (3 x 3):
+1 2 3
+4 5 6
+7 8 9
+Enter matrix B (3 x 3):
+9 8 7
+6 5 4
+3 2 1
+
+A + B:
+  10  10  10
+  10  10  10
+  10  10  10
+*/</pre>
+      </details>
+    </section>
+    <section id="p45">
+      <h2><span class="n">45</span>Find the transpose of a matrix</h2>
+      <p class="fname">Program 45.c</p>
+      <p class="label">Input</p>
+      <pre class="io">1 2 3
+4 5 6
+7 8 9</pre>
+      <p class="label">Output</p>
+      <pre class="io">Enter the matrix (3 x 3):
+
+Original matrix:
+   1   2   3
+   4   5   6
+   7   8   9
+
+Transpose:
+   1   4   7
+   2   5   8
+   3   6   9</pre>
+      <details>
+        <summary>Source code <span>(86 lines)</span></summary>
+        <pre class="src">// Write a program to find the transpose of a matrix
+
+#include &lt;stdio.h&gt;
+
+#define ROWS 3
+#define COLS 3
+
+int main()
+{
+    int matrix[ROWS][COLS], transpose[COLS][ROWS];
+    int i, j;
+
+    printf("Enter the matrix (%d x %d):\n", ROWS, COLS);
+
+    for (i = 0; i &lt; ROWS; i++)
+        for (j = 0; j &lt; COLS; j++)
+            scanf("%d", &amp;matrix[i][j]);
+
+    /* Rows become columns and columns become rows. */
+    for (i = 0; i &lt; ROWS; i++)
+        for (j = 0; j &lt; COLS; j++)
+            transpose[j][i] = matrix[i][j];
+
+    printf("\nOriginal matrix:\n");
+    for (i = 0; i &lt; ROWS; i++)
+    {
+        for (j = 0; j &lt; COLS; j++)
+            printf("%4d", matrix[i][j]);
+        printf("\n");
+    }
+
+    printf("\nTranspose:\n");
+    for (i = 0; i &lt; COLS; i++)
+    {
+        for (j = 0; j &lt; ROWS; j++)
+            printf("%4d", transpose[i][j]);
+        printf("\n");
+    }
+
+    return 0;
+}
+
+/*
+Explanation
+
+1. What a transpose is
+
+Every element at row i, column j moves to row j, column i.
+The first row becomes the first column, and so on.
+
+2. transpose[j][i] = matrix[i][j];
+
+Note the swapped indexes on the left side.
+This single line performs the whole transpose.
+
+3. transposed dimensions
+
+int transpose[COLS][ROWS];
+
+The dimensions are reversed on purpose: a 3x4 matrix becomes 4x3.
+For a square matrix the size is unchanged, but writing it this way keeps
+the code correct if you change ROWS and COLS.
+
+4. Printing
+
+The printing loops for the transpose run COLS rows and ROWS columns,
+matching the new shape.
+
+5. Try it
+
+    1 2 3        1 4 7
+    4 5 6   -&gt;   2 5 8
+    7 8 9        3 6 9
+
+Complete Output
+
+Enter the matrix (3 x 3):
+1 2 3
+4 5 6
+7 8 9
+
+Transpose:
+   1   4   7
+   2   5   8
+   3   6   9
+*/</pre>
+      </details>
+    </section>
+    <section id="p46">
+      <h2><span class="n">46</span>Count the number of words in a sentence</h2>
+      <p class="fname">Program 46.c</p>
+      <p class="label">Input</p>
+      <pre class="io">Hello C World</pre>
+      <p class="label">Output</p>
+      <pre class="io">Enter a sentence: Word count = 3</pre>
+      <details>
+        <summary>Source code <span>(67 lines)</span></summary>
+        <pre class="src">// Write a program to count the number of words in a sentence
+
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    char str[500];
+    int i, words = 0, inWord = 0;
+
+    printf("Enter a sentence: ");
+
+    if (fgets(str, sizeof(str), stdin) == NULL)
+        return 1;
+
+    for (i = 0; str[i] != '\0'; i++)
+    {
+        if (str[i] == ' ' || str[i] == '\t' || str[i] == '\n')
+        {
+            /* A separator ends the current word. */
+            inWord = 0;
+        }
+        else if (inWord == 0)
+        {
+            /* We just moved from a separator into a word. */
+            inWord = 1;
+            words++;
+        }
+    }
+
+    printf("Word count = %d\n", words);
+
+    return 0;
+}
+
+/*
+Explanation
+
+1. The idea
+
+Count a word only when we move from whitespace into a real character.
+That way two spaces in a row do not count as two words.
+
+2. inWord
+
+A flag that remembers whether we are currently inside a word.
+It starts at 0 because the sentence has not started yet.
+
+3. The two branches
+
+    separator  -&gt; inWord = 0
+    not separator and inWord == 0  -&gt; we entered a new word, words++
+
+4. Why not strtok()?
+
+strtok() modifies the string and is trickier for beginners.
+This manual loop shows the actual logic, which is what practicals test.
+
+5. fgets()
+
+Reads the whole line including spaces.
+As always it may keep the '\n' at the end, so '\n' is treated as a separator.
+
+Complete Output
+
+Enter a sentence: C   language practice is fun
+Word count = 5
+*/</pre>
+      </details>
+    </section>
+    <section id="p47">
+      <h2><span class="n">47</span>Join two strings without using strcat()</h2>
+      <p class="fname">Program 47.c</p>
+      <p class="label">Input</p>
+      <pre class="io">Hello
+World</pre>
+      <p class="label">Output</p>
+      <pre class="io">Enter first string : Enter second string: 
+Joined string: HelloWorld</pre>
+      <details>
+        <summary>Source code <span>(71 lines)</span></summary>
+        <pre class="src">// Write a program to join two strings without using strcat()
+
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    char first[200], second[100];
+    int i = 0, j = 0;
+
+    printf("Enter first string : ");
+    if (fgets(first, sizeof(first), stdin) == NULL)
+        return 1;
+
+    printf("Enter second string: ");
+    if (fgets(second, sizeof(second), stdin) == NULL)
+        return 1;
+
+    /* Move i to the end of the first string, ignoring the newline fgets keeps. */
+    while (first[i] != '\0' &amp;&amp; first[i] != '\n')
+        i++;
+
+    /* Copy the second string character by character. */
+    while (second[j] != '\0' &amp;&amp; second[j] != '\n')
+    {
+        first[i] = second[j];
+        i++;
+        j++;
+    }
+
+    first[i] = '\0';   /* a C string must end with a null character */
+
+    printf("\nJoined string: %s\n", first);
+
+    return 0;
+}
+
+/*
+Explanation
+
+1. What strcat() does internally
+
+Find the end of the destination string, copy the source over it,
+then write a '\0' at the new end. This program does that by hand.
+
+2. first[i] != '\0'
+
+The first loop walks until it meets the null terminator.
+The extra check for '\n' removes the newline that fgets() leaves behind.
+
+3. Copying
+
+first[i] = second[j];
+
+i keeps moving along the destination, j along the source.
+
+4. first[i] = '\0';
+
+Without the null terminator, printf("%s") would keep reading past the end of
+the string into unrelated memory. This line is mandatory.
+
+5. Buffer size
+
+first is 200 bytes and second only 100.
+The destination must always be large enough to hold both strings plus '\0'.
+
+Complete Output
+
+Enter first string : Hello
+Enter second string: World
+Joined string: HelloWorld
+*/</pre>
+      </details>
+    </section>
+    <section id="p48">
+      <h2><span class="n">48</span>Store numbers using dynamic memory allocation with malloc()</h2>
+      <p class="fname">Program 48.c</p>
+      <p class="label">Input</p>
+      <pre class="io">4
+10
+20
+30
+40</pre>
+      <p class="label">Output</p>
+      <pre class="io">How many numbers? Number 1: Number 2: Number 3: Number 4: 
+Sum     = 100
+Average = 25.00</pre>
+      <details>
+        <summary>Source code <span>(88 lines)</span></summary>
+        <pre class="src">// Write a program to store numbers using dynamic memory allocation with malloc()
+
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+int main()
+{
+    int n, i, sum = 0;
+    int *arr;
+
+    printf("How many numbers? ");
+    scanf("%d", &amp;n);
+
+    if (n &lt;= 0)
+    {
+        printf("Please enter a positive number.\n");
+        return 1;
+    }
+
+    /* Ask the system for exactly n ints of memory at run time. */
+    arr = (int *)malloc((size_t)n * sizeof(int));
+
+    if (arr == NULL)
+    {
+        printf("Memory allocation failed.\n");
+        return 1;
+    }
+
+    for (i = 0; i &lt; n; i++)
+    {
+        printf("Number %d: ", i + 1);
+        scanf("%d", &amp;arr[i]);
+        sum += arr[i];
+    }
+
+    printf("\nSum     = %d\n", sum);
+    printf("Average = %.2f\n", (double)sum / n);
+
+    free(arr);
+    arr = NULL;
+
+    return 0;
+}
+
+/*
+Explanation
+
+1. Why malloc()?
+
+int arr[100]; reserves space for 100 numbers even if you need 3.
+malloc() allocates exactly what is needed, at run time, on the heap.
+
+2. (int *)malloc(n * sizeof(int))
+
+sizeof(int) is the number of bytes one int needs.
+Multiplying gives the total bytes for n ints.
+The (int *) cast turns the returned void pointer into an int pointer.
+
+3. Always check for NULL
+
+If the system is out of memory malloc() returns NULL.
+Using a NULL pointer would crash the program, so we check first.
+
+4. free(arr);
+
+Heap memory is not released automatically.
+free() gives it back; forgetting this is called a memory leak.
+
+5. arr = NULL;
+
+A small habit that prevents accidentally using a freed pointer later.
+
+6. (double)sum / n
+
+sum and n are both ints, so integer division would drop the decimals.
+Casting to double first keeps them.
+
+Complete Output
+
+How many numbers? 4
+Number 1: 10
+Number 2: 20
+Number 3: 30
+Number 4: 40
+
+Sum     = 100
+Average = 25.00
+*/</pre>
+      </details>
+    </section>
+    <section id="p49">
+      <h2><span class="n">49</span>Demonstrate bitwise operators</h2>
+      <p class="fname">Program 49.c</p>
+      <p class="label">Input</p>
+      <pre class="io">12 10</pre>
+      <p class="label">Output</p>
+      <pre class="io">Enter two integers: 
+a = 12, b = 10
+
+a &amp; b   (AND)         = 8
+a | b   (OR)          = 14
+a ^ b   (XOR)         = 6
+~a      (NOT)         = -13
+a &lt;&lt; 1  (left shift)  = 24
+a &gt;&gt; 1  (right shift) = 6
+b &lt;&lt; 1  (left shift)  = 20</pre>
+      <details>
+        <summary>Source code <span>(78 lines)</span></summary>
+        <pre class="src">// Write a program to demonstrate bitwise operators
+
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int a, b;
+
+    printf("Enter two integers: ");
+
+    if (scanf("%d %d", &amp;a, &amp;b) != 2)
+        return 1;
+
+    printf("\na = %d, b = %d\n\n", a, b);
+
+    printf("a &amp; b   (AND)         = %d\n", a &amp; b);
+    printf("a | b   (OR)          = %d\n", a | b);
+    printf("a ^ b   (XOR)         = %d\n", a ^ b);
+    printf("~a      (NOT)         = %d\n", ~a);
+    printf("a &lt;&lt; 1  (left shift)  = %d\n", a &lt;&lt; 1);
+    printf("a &gt;&gt; 1  (right shift) = %d\n", a &gt;&gt; 1);
+    printf("b &lt;&lt; 1  (left shift)  = %d\n", b &lt;&lt; 1);
+
+    return 0;
+}
+
+/*
+Explanation
+
+1. Bitwise operators work on individual bits, not on the whole number.
+
+    5  = 0101
+    3  = 0011
+
+2. a &amp; b (AND)
+
+A bit is 1 only when both numbers have 1 in that position.
+
+    0101
+    0011
+    ---- &amp;
+    0001  = 1
+
+3. a | b (OR)
+
+A bit is 1 when at least one number has 1 there.
+
+    0101 | 0011 = 0111 = 7
+
+4. a ^ b (XOR)
+
+A bit is 1 when the two bits are different.
+
+    0101 ^ 0011 = 0110 = 6
+
+5. ~a (NOT)
+
+Flips every bit, including the sign bit, which is why the result is negative.
+
+6. a &lt;&lt; 1 and a &gt;&gt; 1
+
+Shifting left by one multiplies by 2, shifting right by one divides by 2.
+5 &lt;&lt; 1 = 10 and 5 &gt;&gt; 1 = 2.
+
+Complete Output
+
+Enter two integers: 5 3
+
+a = 5, b = 3
+
+a &amp; b   (AND)         = 1
+a | b   (OR)          = 7
+a ^ b   (XOR)         = 6
+~a      (NOT)         = -6
+a &lt;&lt; 1  (left shift)  = 10
+a &gt;&gt; 1  (right shift) = 2
+b &lt;&lt; 1  (left shift)  = 6
+*/</pre>
+      </details>
+    </section>
+  <footer>
+    Generated from the sources in this repository and <code>tests/cases/</code>.
+  </footer>
+</div>
+</body>
+</html>
