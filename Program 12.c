@@ -1,4 +1,4 @@
-// Write code forCalculate Simple Interest Using float in c Language
+// Write a code for Calculate Simple Interest Using float in C Language
 
 // The manual gives the formula as i = (p*r*n)/100.
 

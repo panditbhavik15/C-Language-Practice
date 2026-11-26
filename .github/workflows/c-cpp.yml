@@ -1,23 +1,23 @@
-name: C/C++ CI
+name: Build C Programs
 
 on:
   push:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
+  workflow_dispatch:
 
 jobs:
   build:
-
+    name: Compile every program
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
-    - name: configure
-      run: ./configure
-    - name: make
-      run: make
-    - name: make check
-      run: make check
-    - name: make distcheck
-      run: make distcheck
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Show compiler version
+        run: gcc --version
+
+      - name: Compile all programs
+        run: bash compile-all.sh

@@ -1,4 +1,4 @@
-// write a code fro Calculate the Area of a Circle Using float in C Language
+// Write a code for Calculate the Area of a Circle Using float in C Language
 
 #include <stdio.h>
 

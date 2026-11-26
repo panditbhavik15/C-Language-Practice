@@ -51,3 +51,12 @@ printf() displays information on the screen.
 %d is used to display an integer value.
 
 age tells C to put the value of the age variable where %d is written.
+
+6. return 0;
+
+This tells the computer that the program finished successfully.
+
+Complete Output
+
+My age is 20
+*/

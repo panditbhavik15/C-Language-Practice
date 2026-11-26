@@ -1,0 +1,20 @@
+# Build output
+build/
+
+# Compiled binaries
+*.exe
+*.o
+*.obj
+*.out
+a.out
+program[0-9]*
+
+# Files created by the file-handling programs
+notes.txt
+
+# Editor / OS noise
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db

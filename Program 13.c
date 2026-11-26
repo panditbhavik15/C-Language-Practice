@@ -1,4 +1,4 @@
-// Write code forCelsius to Fahrenheit Using float in C Language
+// Write a code for Celsius to Fahrenheit Using float in C Language
 
 // The manual uses the formula F = 1.8 × C + 32.
 
@@ -17,6 +17,7 @@ int main()
 
     return 0;
 }
+/*
 Explanation
 1. #include <stdio.h>
 

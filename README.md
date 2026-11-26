@@ -1,71 +1,215 @@
 <div align="center">
 
-# 🖥️ C Language Practice Repository
+# 🖥️ C Language Practice
 
-**A step-by-step collection of beginner-to-advanced C programming exercises, practicals, and logic-building programs.**
+**33 hands-on C programs — from your very first `printf` all the way to arrays, strings, pointers, structures and file handling.**
 
-[![Language](https://shields.io)](https://cppreference.com)
-[![Compiler](https://shields.io)](https://gnu.org)
-[![License](https://shields.io)](https://github.com)
-[![Stars](https://shields.io)](https://github.com)
+[![Build](https://github.com/panditbhavik15/C-Language-Practice/actions/workflows/c-cpp.yml/badge.svg)](https://github.com/panditbhavik15/C-Language-Practice/actions/workflows/c-cpp.yml)
+[![Language](https://img.shields.io/github/languages/top/panditbhavik15/C-Language-Practice?color=00599C)](https://github.com/panditbhavik15/C-Language-Practice)
+[![Standard](https://img.shields.io/badge/standard-C11-blue)](https://en.wikipedia.org/wiki/C11_(C_standard_revision))
+[![License](https://img.shields.io/github/license/panditbhavik15/C-Language-Practice?color=green)](LICENSE)
+[![Last Commit](https://img.shields.io/github/last-commit/panditbhavik15/C-Language-Practice)](https://github.com/panditbhavik15/C-Language-Practice/commits/main)
+[![Stars](https://img.shields.io/github/stars/panditbhavik15/C-Language-Practice?style=social)](https://github.com/panditbhavik15/C-Language-Practice/stargazers)
 
-[Overview](#-overview) • [Topics Covered](#-topics-covered) • [Repository Structure](#-repository-structure) • [How to Run](#%EF%B8%8F-how-to-run-the-programs) • [Roadmap](#-future-plans) • [Author](#-author)
+[Why This Repo](#-why-this-repository) • [Program Index](#-program-index) • [Quick Start](#-quick-start) • [How to Run](#️-how-to-run-a-single-program) • [Contributing](#-contributing) • [Author](#-author)
 
 </div>
 
 ---
 
-## 📖 Overview
+## 📖 About
 
-Welcome to **C Language Practice**! 👋  
-This repository contains sequential C programming practice programs (`Program 1.c` to `Program 19.c`) aimed at building core syntax mastery, logic, control flow, functions, arrays, pointers, and file operations.
+Welcome to **C Language Practice** 👋
+
+This repository is a sequential, beginner-friendly collection of C programs written while learning the language from the ground up — the same order a college practical course or a self-taught roadmap would follow.
+
+**Every single file** follows the same simple layout:
+
+1. A one-line comment saying what the program does
+2. The complete, runnable source code
+3. A plain-English `Explanation` block at the bottom describing each step
+
+No frameworks, no build system to learn, no setup headaches. Just `gcc` and a terminal.
 
 > **Learn → Practice → Build → Improve 🚀**
 
 ---
 
-## 📚 Topics Covered
+## ✨ Why This Repository
 
-✔ **Fundamentals & I/O:** Basic I/O (`printf`, `scanf`), data types, and variables  
-✔ **Control Flow & Loops:** Conditionals (`if-else`, `switch`), loops (`for`, `while`, `do-while`), and control statements  
-✔ **Functions & Modular Programming:** Reusable code blocks and logical decomposition  
-✔ **Arrays & Strings:** 1D/2D arrays, string manipulation, and character handling  
-✔ **Pointers & Memory:** Address arithmetic and pointer fundamentals  
-✔ **Structures & File Handling:** Custom data structures and external file operations (`Program 1.txt`)  
-
----
-
-## 🧑‍💻 Technologies & Structure
-
-* **Language & Compiler:** C99 / C11 via GCC
-* **Automation:** GitHub Actions workflow scripts (`.github/workflows`)
-* **Layout:** Features numbered source files (`Program 1.c` – `Program 19.c`), supporting text/data files, and an MIT License.
+| | |
+|---|---|
+| ✅ **Everything compiles** | All 33 programs are built with `gcc -std=c11 -Wall -Wextra` on every push by GitHub Actions. No broken files, no warnings. |
+| 📝 **Explained line by line** | Every program ends with an `Explanation` block written for absolute beginners, including the full sample output. |
+| 🧭 **Ordered learning path** | Files are numbered `Program 1.c` → `Program 33.c` and grouped by topic, so you always know what to study next. |
+| 🪶 **Zero dependencies** | Only the C standard library. Works on Windows, Linux and macOS. |
+| 🤝 **Beginner friendly** | Found a bug or want to add your own program? Pull requests are genuinely welcome. |
 
 ---
 
-## ⚙️ How to Run the Programs
+## 📚 Program Index
+
+### 1. Getting Started — Input & Output
+
+| # | Program | What you learn | Source |
+|:--|:--------|:---------------|:-------|
+| 1 | Hello, World! | Your first C program and `printf()` | [Program 1.c](Program%201.c) |
+| 2 | Variables & `printf()` | Declaring an `int` and printing it with `%d` | [Program 2.c](Program%202.c) |
+| 3 | Reading Input with `scanf()` | Taking a number from the user | [Program 3.c](Program%203.c) |
+| 4 | Add Two Numbers | Input → calculation → output | [Program 4.c](Program%204.c) |
+| 8 | Characters with `char` | Storing a single character, `%c` | [Program 8.c](Program%208.c) |
+| 9 | Read a Character | `scanf(" %c")` and why the space matters | [Program 9.c](Program%209.c) |
+
+### 2. Data Types & Numbers
+
+| # | Program | What you learn | Source |
+|:--|:--------|:---------------|:-------|
+| 7 | Adding Decimals | The `float` type and `%.2f` | [Program 7.c](Program%207.c) |
+| 10 | Read a Decimal Number | `%f` with `scanf()` | [Program 10.c](Program%2010.c) |
+| 11 | Area of a Circle | Applying a formula with `float` | [Program 11.c](Program%2011.c) |
+| 12 | Simple Interest | `I = (p × r × n) / 100` | [Program 12.c](Program%2012.c) |
+| 13 | Celsius → Fahrenheit | `F = 1.8 × C + 32` | [Program 13.c](Program%2013.c) |
+
+### 3. Operators & Expressions
+
+| # | Program | What you learn | Source |
+|:--|:--------|:---------------|:-------|
+| 5 | Arithmetic Operations | `+`, `-`, `*`, `/` on two numbers | [Program 5.c](Program%205.c) |
+| 6 | Modulus / Remainder | The `%` operator | [Program 6.c](Program%206.c) |
+| 14 | All Arithmetic Operators | Division vs. remainder in one program | [Program 14.c](Program%2014.c) |
+| 15 | Odd or Even | The conditional (ternary) operator `? :` | [Program 15.c](Program%2015.c) |
+| 16 | Increment & Decrement | `a++` and `a--` | [Program 16.c](Program%2016.c) |
+| 17 | Shorthand Assignment | `+=`, `-=`, `*=`, `/=` | [Program 17.c](Program%2017.c) |
+| 18 | `sizeof` Operator | How much memory each type uses | [Program 18.c](Program%2018.c) |
+
+### 4. Decision Making & Loops
+
+| # | Program | What you learn | Source |
+|:--|:--------|:---------------|:-------|
+| 19 | Grade Using `if-else` Ladder | Chained conditions | [Program 19.c](Program%2019.c) |
+| 20 | Numbers from 1 to N | The `for` loop | [Program 20.c](Program%2020.c) |
+| 21 | Sum of Digits | The `while` loop | [Program 21.c](Program%2021.c) |
+| 22 | Multiplication Table | The `do-while` loop | [Program 22.c](Program%2022.c) |
+| 23 | Pyramid Star Pattern | Nested loops | [Program 23.c](Program%2023.c) |
+| 33 | Fibonacci Series | Building a sequence in a loop | [Program 33.c](Program%2033.c) |
+
+### 5. Functions & Recursion
+
+| # | Program | What you learn | Source |
+|:--|:--------|:---------------|:-------|
+| 24 | Factorial Using Recursion | A function that calls itself | [Program 24.c](Program%2024.c) |
+| 25 | Prime Number Check | Writing your own function | [Program 25.c](Program%2025.c) |
+
+### 6. Arrays
+
+| # | Program | What you learn | Source |
+|:--|:--------|:---------------|:-------|
+| 26 | Largest & Smallest Element | Traversing an array | [Program 26.c](Program%2026.c) |
+| 27 | Reverse an Array | Swapping in place | [Program 27.c](Program%2027.c) |
+
+### 7. Strings
+
+| # | Program | What you learn | Source |
+|:--|:--------|:---------------|:-------|
+| 28 | Length, Vowels & Consonants | Working with strings without `strlen()` | [Program 28.c](Program%2028.c) |
+| 29 | Palindrome Check | Comparing characters from both ends | [Program 29.c](Program%2029.c) |
+
+### 8. Pointers
+
+| # | Program | What you learn | Source |
+|:--|:--------|:---------------|:-------|
+| 30 | Swap Two Numbers | Pointers and pass-by-reference | [Program 30.c](Program%2030.c) |
+
+### 9. Structures & File Handling
+
+| # | Program | What you learn | Source |
+|:--|:--------|:---------------|:-------|
+| 31 | Student Record | Grouping data with `struct` | [Program 31.c](Program%2031.c) |
+| 32 | Write & Read a File | `fopen`, `fprintf`, `fgets`, `fclose` | [Program 32.c](Program%2032.c) |
+
+---
+
+## 🚀 Quick Start
 
 ```bash
-# 1️⃣ Clone the Repository
-git clone https://github.com
+# 1. Clone the repository
+git clone https://github.com/panditbhavik15/C-Language-Practice.git
 
-# 2️⃣ Navigate to the Directory
+# 2. Move into the folder
 cd C-Language-Practice
 
-# 3️⃣ Compile a Program (use quotes for filenames with spaces)
-gcc "Program 1.c" -o program1
-
-# 4️⃣ Execute the Binary
-./program1        # Linux / macOS
-program1.exe      # Windows
+# 3. Compile every program at once (output goes into ./build)
+bash compile-all.sh
 ```
+
+`compile-all.sh` prints `OK` or `FAIL` for each file and exits with a non-zero status if anything breaks — that is exactly what the GitHub Actions workflow runs on every push.
 
 ---
 
-## 🎯 Author & Support
+## ⚙️ How to Run a Single Program
 
-**Bhavik Pandit**  
-B.Tech in Computer Science (AI & ML) | Dr. Subhash University, Gujarat  
-[![GitHub](https://shields.io)](https://github.com/panditbhavik15)
+**Linux / macOS**
 
-*If this repository helps your coursework, please consider dropping a **⭐ Star** on GitHub!*
+```bash
+gcc -Wall -Wextra "Program 1.c" -o program1
+./program1
+```
+
+**Windows (MinGW / Git Bash)**
+
+```bash
+gcc -Wall -Wextra "Program 1.c" -o program1.exe
+./program1.exe
+```
+
+> 💡 **Keep the quotes.** File names contain spaces (`Program 1.c`), so the shell needs them.
+
+---
+
+## 🧠 Suggested Learning Order
+
+- [x] Programs **1 – 10** — syntax, variables, input and output
+- [x] Programs **11 – 18** — formulas and every basic operator
+- [x] Programs **19 – 23, 33** — decisions, loops and patterns
+- [x] Programs **24 – 25** — writing your own functions
+- [x] Programs **26 – 29** — arrays and strings
+- [x] Programs **30 – 32** — pointers, structures and files
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome — a new program, a clearer explanation or a bug fix all help.
+
+1. Fork the repository
+2. Create a branch: `git checkout -b add-my-program`
+3. Add your file following the existing style (`Program NN.c`, code + `Explanation` block)
+4. Make sure it compiles without warnings: `bash compile-all.sh`
+5. Open a pull request
+
+Please read [CONTRIBUTING.md](CONTRIBUTING.md) for the full style guide.
+
+---
+
+## 📜 License
+
+Released under the **MIT License** — free to use, modify and share. See [LICENSE](LICENSE).
+
+---
+
+## 👨‍💻 Author
+
+**Bhavik Pandit**
+B.Tech in Computer Science (AI & ML) · Dr. Subhash University, Gujarat
+
+[![GitHub](https://img.shields.io/badge/GitHub-panditbhavik15-181717?logo=github&logoColor=white)](https://github.com/panditbhavik15)
+
+---
+
+<div align="center">
+
+### ⭐ If these programs helped you, please drop a star — it genuinely helps!
+
+*Happy coding!*
+
+</div>
