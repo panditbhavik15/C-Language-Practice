@@ -1,0 +1,11 @@
+# Normalise line endings in the repository to LF.
+# The working tree keeps the platform native endings, so editing a file on
+# Windows no longer produces a whole-file diff when you commit it.
+* text=auto
+
+# Shell scripts and CI files must be LF so they run on Linux runners.
+*.sh      text eol=lf
+*.yml     text eol=lf
+*.yaml    text eol=lf
+*.c       text diff=cpp
+*.h       text diff=cpp
