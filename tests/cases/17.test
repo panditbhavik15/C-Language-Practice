@@ -1,0 +1,7 @@
+--- input
+--- output
+Initial value = 10
+After a += 5 = 15
+After a -= 3 = 12
+After a *= 2 = 24
+After a /= 4 = 6

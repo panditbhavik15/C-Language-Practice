@@ -1,0 +1,7 @@
+--- input
+20
+10
+--- output
+Enter first number : Enter second number: 
+Before swap: x = 20, y = 10
+After swap : x = 10, y = 20

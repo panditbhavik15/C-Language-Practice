@@ -60,7 +60,16 @@ Thanks for wanting to improve **C Language Practice**! 🎉
    Every file must print `OK`. If your program creates a file on disk, add that
    file name to `.gitignore`.
 
-6. Open a pull request that describes what the program does.
+6. Record its expected output so CI can check it:
+
+   ```bash
+   bash run-tests.sh --update
+   ```
+
+   That writes `tests/cases/NN.test`. Open the file, check the output is what you
+expect, and commit it with the program.
+
+7. Open a pull request that describes what the program does.
 
 ## Pull request checklist
 
@@ -68,6 +77,7 @@ Thanks for wanting to improve **C Language Practice**! 🎉
 - [ ] The program compiles with `-Wall -Wextra` and no warnings
 - [ ] An `Explanation` block is included at the bottom of the file
 - [ ] The sample output in the explanation matches the real output
+- [ ] A test case exists in `tests/cases/NN.test` and `bash run-tests.sh` passes
 - [ ] The README program index has been updated
 
 ## Code of conduct

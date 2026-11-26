@@ -1,0 +1,7 @@
+--- input
+5
+10 20 30 40 50
+30
+--- output
+How many elements? Enter the elements in sorted (ascending) order:
+Element 1: Element 2: Element 3: Element 4: Element 5: Enter the value to search: 30 found at position 3 (index 2).

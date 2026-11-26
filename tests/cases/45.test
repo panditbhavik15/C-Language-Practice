@@ -1,0 +1,16 @@
+--- input
+1 2 3
+4 5 6
+7 8 9
+--- output
+Enter the matrix (3 x 3):
+
+Original matrix:
+   1   2   3
+   4   5   6
+   7   8   9
+
+Transpose:
+   1   4   7
+   2   5   8
+   3   6   9

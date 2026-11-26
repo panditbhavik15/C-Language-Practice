@@ -1,0 +1,6 @@
+--- input
+Hello
+World
+--- output
+Enter first string : Enter second string: 
+Joined string: HelloWorld

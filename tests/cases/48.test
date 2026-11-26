@@ -1,0 +1,10 @@
+--- input
+4
+10
+20
+30
+40
+--- output
+How many numbers? Number 1: Number 2: Number 3: Number 4: 
+Sum     = 100
+Average = 25.00

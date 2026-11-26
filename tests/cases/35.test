@@ -1,0 +1,4 @@
+--- input
+12 + 5
+--- output
+Enter an expression (for example 12 + 5): 12.00 + 5.00 = 17.00

@@ -9,7 +9,7 @@ on:
 
 jobs:
   build:
-    name: Compile every program
+    name: Build and test every program
     runs-on: ubuntu-latest
 
     steps:
@@ -21,3 +21,6 @@ jobs:
 
       - name: Compile all programs
         run: bash compile-all.sh
+
+      - name: Run expected-output tests
+        run: bash run-tests.sh

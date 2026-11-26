@@ -1,0 +1,10 @@
+--- input
+101
+Bhavik Pandit
+88.5
+--- output
+Enter roll number: Enter name: Enter marks: 
+--- Student Record ---
+Roll  : 101
+Name  : Bhavik Pandit
+Marks : 88.50

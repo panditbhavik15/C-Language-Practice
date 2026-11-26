@@ -9,3 +9,4 @@
 *.yaml    text eol=lf
 *.c       text diff=cpp
 *.h       text diff=cpp
+*.cmd     text eol=crlf

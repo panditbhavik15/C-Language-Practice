@@ -180,6 +180,14 @@ bash compile-all.sh
 
 `compile-all.sh` prints `OK` or `FAIL` for each file and exits with a non-zero status if anything breaks — that is exactly what the GitHub Actions workflow runs on every push.
 
+**Windows (Command Prompt or PowerShell)**
+
+```bat
+compile-all.cmd
+```
+
+`compile-all.cmd` is the same build for Windows: MinGW's `gcc`, the same `OK` / `FAIL` lines, output into `build\`, and a non-zero exit status if anything fails.
+
 ---
 
 ## ⚙️ How to Run a Single Program
@@ -198,7 +206,52 @@ gcc -Wall -Wextra "Program 01.c" -o program1.exe
 ./program1.exe
 ```
 
+**Windows (Command Prompt)**
+
+```bat
+gcc -Wall -Wextra "Program 01.c" -o program1.exe
+program1.exe
+```
+
 > 💡 **Keep the quotes.** File names contain spaces (`Program 01.c`), so the shell needs them.
+
+---
+
+## 🧪 Tests
+
+Every program has an input/output pair recorded in `tests/cases/`:
+
+```text
+tests/cases/05.test
+
+    --- input
+    20
+    10
+    --- output
+    Enter first number: Enter second number: Addition = 30
+    Subtraction = 10
+    ...
+```
+
+Compile each program, feed it the recorded input and compare what it prints:
+
+```bash
+bash run-tests.sh
+```
+
+The script prints `PASS` or `FAIL` for every program, shows a diff when the output
+changed, and exits non-zero if anything fails. `SKIP` means the program has no
+case file yet.
+
+When you change a program on purpose, re-record its output and review the result:
+
+```bash
+bash run-tests.sh --update
+git diff tests/cases
+```
+
+CI runs this after the build on every push, so a program that compiles but prints
+the wrong answer is caught too.
 
 ---
 
@@ -224,7 +277,7 @@ Contributions are welcome — a new program, a clearer explanation or a bug fix 
 1. Fork the repository
 2. Create a branch: `git checkout -b add-my-program`
 3. Add your file following the existing style (`Program NN.c`, code + `Explanation` block)
-4. Make sure it compiles without warnings: `bash compile-all.sh`
+4. Make sure it compiles without warnings (`bash compile-all.sh` or `compile-all.cmd`) and record a test case with `bash run-tests.sh --update`
 5. Open a pull request
 
 Please read [CONTRIBUTING.md](CONTRIBUTING.md) for the full style guide.

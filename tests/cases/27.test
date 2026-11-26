@@ -1,0 +1,6 @@
+--- input
+5
+10 20 30 40 50
+--- output
+How many elements? Element 1: Element 2: Element 3: Element 4: Element 5: 
+Reversed array: 50 40 30 20 10 

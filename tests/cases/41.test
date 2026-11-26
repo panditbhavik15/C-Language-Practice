@@ -1,0 +1,6 @@
+--- input
+36
+24
+--- output
+Enter two positive numbers: GCD of 36 and 24 = 12
+LCM of 36 and 24 = 72

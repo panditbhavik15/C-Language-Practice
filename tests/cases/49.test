@@ -1,0 +1,13 @@
+--- input
+12 10
+--- output
+Enter two integers: 
+a = 12, b = 10
+
+a & b   (AND)         = 8
+a | b   (OR)          = 14
+a ^ b   (XOR)         = 6
+~a      (NOT)         = -13
+a << 1  (left shift)  = 24
+a >> 1  (right shift) = 6
+b << 1  (left shift)  = 20

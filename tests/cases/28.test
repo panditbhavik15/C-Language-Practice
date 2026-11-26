@@ -1,0 +1,7 @@
+--- input
+Hello C World
+--- output
+Enter a sentence: 
+Length     = 13
+Vowels     = 3
+Consonants = 8
