@@ -41,7 +41,7 @@ No frameworks, no build system to learn, no setup headaches. Just `gcc` and a te
 |---|---|
 | ✅ **Everything compiles** | All 49 programs are built with `gcc -std=c11 -Wall -Wextra` on every push by GitHub Actions. No broken files, no warnings. |
 | 📝 **Explained line by line** | Every program ends with an `Explanation` block written for absolute beginners, including the full sample output. |
-| 🧭 **Ordered learning path** | Files are numbered `Program 1.c` → `Program 49.c` and grouped by topic, so you always know what to study next. |
+| 🧭 **Ordered learning path** | Files are numbered `Program 01.c` → `Program 49.c` and grouped by topic, so you always know what to study next. |
 | 🪶 **Zero dependencies** | Only the C standard library. Works on Windows, Linux and macOS. |
 | 🤝 **Beginner friendly** | Found a bug or want to add your own program? Pull requests are genuinely welcome. |
 
@@ -53,18 +53,18 @@ No frameworks, no build system to learn, no setup headaches. Just `gcc` and a te
 
 | # | Program | What you learn | Source |
 |:--|:--------|:---------------|:-------|
-| 1 | Hello, World! | Your first C program and `printf()` | [Program 1.c](Program%201.c) |
-| 2 | Variables & `printf()` | Declaring an `int` and printing it with `%d` | [Program 2.c](Program%202.c) |
-| 3 | Reading Input with `scanf()` | Taking a number from the user | [Program 3.c](Program%203.c) |
-| 4 | Add Two Numbers | Input → calculation → output | [Program 4.c](Program%204.c) |
-| 8 | Characters with `char` | Storing a single character, `%c` | [Program 8.c](Program%208.c) |
-| 9 | Read a Character | `scanf(" %c")` and why the space matters | [Program 9.c](Program%209.c) |
+| 1 | Hello, World! | Your first C program and `printf()` | [Program 01.c](Program%2001.c) |
+| 2 | Variables & `printf()` | Declaring an `int` and printing it with `%d` | [Program 02.c](Program%2002.c) |
+| 3 | Reading Input with `scanf()` | Taking a number from the user | [Program 03.c](Program%2003.c) |
+| 4 | Add Two Numbers | Input → calculation → output | [Program 04.c](Program%2004.c) |
+| 8 | Characters with `char` | Storing a single character, `%c` | [Program 08.c](Program%2008.c) |
+| 9 | Read a Character | `scanf(" %c")` and why the space matters | [Program 09.c](Program%2009.c) |
 
 ### 2. Data Types & Numbers
 
 | # | Program | What you learn | Source |
 |:--|:--------|:---------------|:-------|
-| 7 | Adding Decimals | The `float` type and `%.2f` | [Program 7.c](Program%207.c) |
+| 7 | Adding Decimals | The `float` type and `%.2f` | [Program 07.c](Program%2007.c) |
 | 10 | Read a Decimal Number | `%f` with `scanf()` | [Program 10.c](Program%2010.c) |
 | 11 | Area of a Circle | Applying a formula with `float` | [Program 11.c](Program%2011.c) |
 | 12 | Simple Interest | `I = (p × r × n) / 100` | [Program 12.c](Program%2012.c) |
@@ -74,8 +74,8 @@ No frameworks, no build system to learn, no setup headaches. Just `gcc` and a te
 
 | # | Program | What you learn | Source |
 |:--|:--------|:---------------|:-------|
-| 5 | Arithmetic Operations | `+`, `-`, `*`, `/` on two numbers | [Program 5.c](Program%205.c) |
-| 6 | Modulus / Remainder | The `%` operator | [Program 6.c](Program%206.c) |
+| 5 | Arithmetic Operations | `+`, `-`, `*`, `/` on two numbers | [Program 05.c](Program%2005.c) |
+| 6 | Modulus / Remainder | The `%` operator | [Program 06.c](Program%2006.c) |
 | 14 | All Arithmetic Operators | Division vs. remainder in one program | [Program 14.c](Program%2014.c) |
 | 15 | Odd or Even | The conditional (ternary) operator `? :` | [Program 15.c](Program%2015.c) |
 | 16 | Increment & Decrement | `a++` and `a--` | [Program 16.c](Program%2016.c) |
@@ -187,18 +187,18 @@ bash compile-all.sh
 **Linux / macOS**
 
 ```bash
-gcc -Wall -Wextra "Program 1.c" -o program1
+gcc -Wall -Wextra "Program 01.c" -o program1
 ./program1
 ```
 
 **Windows (MinGW / Git Bash)**
 
 ```bash
-gcc -Wall -Wextra "Program 1.c" -o program1.exe
+gcc -Wall -Wextra "Program 01.c" -o program1.exe
 ./program1.exe
 ```
 
-> 💡 **Keep the quotes.** File names contain spaces (`Program 1.c`), so the shell needs them.
+> 💡 **Keep the quotes.** File names contain spaces (`Program 01.c`), so the shell needs them.
 
 ---
 
