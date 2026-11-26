@@ -2,7 +2,7 @@
 
 # 🖥️ C Language Practice
 
-**33 hands-on C programs — from your very first `printf` all the way to arrays, strings, pointers, structures and file handling.**
+**49 hands-on C programs — from your very first `printf` all the way to matrices, searching, pointers, dynamic memory, structures and file handling.**
 
 [![Build](https://github.com/panditbhavik15/C-Language-Practice/actions/workflows/c-cpp.yml/badge.svg)](https://github.com/panditbhavik15/C-Language-Practice/actions/workflows/c-cpp.yml)
 [![Language](https://img.shields.io/github/languages/top/panditbhavik15/C-Language-Practice?color=00599C)](https://github.com/panditbhavik15/C-Language-Practice)
@@ -39,9 +39,9 @@ No frameworks, no build system to learn, no setup headaches. Just `gcc` and a te
 
 | | |
 |---|---|
-| ✅ **Everything compiles** | All 33 programs are built with `gcc -std=c11 -Wall -Wextra` on every push by GitHub Actions. No broken files, no warnings. |
+| ✅ **Everything compiles** | All 49 programs are built with `gcc -std=c11 -Wall -Wextra` on every push by GitHub Actions. No broken files, no warnings. |
 | 📝 **Explained line by line** | Every program ends with an `Explanation` block written for absolute beginners, including the full sample output. |
-| 🧭 **Ordered learning path** | Files are numbered `Program 1.c` → `Program 33.c` and grouped by topic, so you always know what to study next. |
+| 🧭 **Ordered learning path** | Files are numbered `Program 1.c` → `Program 49.c` and grouped by topic, so you always know what to study next. |
 | 🪶 **Zero dependencies** | Only the C standard library. Works on Windows, Linux and macOS. |
 | 🤝 **Beginner friendly** | Found a bug or want to add your own program? Pull requests are genuinely welcome. |
 
@@ -81,46 +81,82 @@ No frameworks, no build system to learn, no setup headaches. Just `gcc` and a te
 | 16 | Increment & Decrement | `a++` and `a--` | [Program 16.c](Program%2016.c) |
 | 17 | Shorthand Assignment | `+=`, `-=`, `*=`, `/=` | [Program 17.c](Program%2017.c) |
 | 18 | `sizeof` Operator | How much memory each type uses | [Program 18.c](Program%2018.c) |
+| 49 | Bitwise Operators | `&`, `\|`, `^`, `~`, `<<`, `>>` | [Program 49.c](Program%2049.c) |
 
-### 4. Decision Making & Loops
+### 4. Decision Making & `switch`
 
 | # | Program | What you learn | Source |
 |:--|:--------|:---------------|:-------|
 | 19 | Grade Using `if-else` Ladder | Chained conditions | [Program 19.c](Program%2019.c) |
+| 34 | Largest of Three Numbers | The `&&` operator | [Program 34.c](Program%2034.c) |
+| 35 | Simple Calculator | The `switch` statement | [Program 35.c](Program%2035.c) |
+| 36 | Vowel or Consonant | `switch` with fall-through cases | [Program 36.c](Program%2036.c) |
+
+### 5. Loops & Patterns
+
+| # | Program | What you learn | Source |
+|:--|:--------|:---------------|:-------|
 | 20 | Numbers from 1 to N | The `for` loop | [Program 20.c](Program%2020.c) |
 | 21 | Sum of Digits | The `while` loop | [Program 21.c](Program%2021.c) |
 | 22 | Multiplication Table | The `do-while` loop | [Program 22.c](Program%2022.c) |
 | 23 | Pyramid Star Pattern | Nested loops | [Program 23.c](Program%2023.c) |
 | 33 | Fibonacci Series | Building a sequence in a loop | [Program 33.c](Program%2033.c) |
 
-### 5. Functions & Recursion
+### 6. Classic Number Programs
+
+| # | Program | What you learn | Source |
+|:--|:--------|:---------------|:-------|
+| 37 | Reverse a Number | Extracting digits with `% 10` | [Program 37.c](Program%2037.c) |
+| 38 | Palindrome Number | Comparing a number with its reverse | [Program 38.c](Program%2038.c) |
+| 39 | Armstrong Number | Digits raised to a power | [Program 39.c](Program%2039.c) |
+| 40 | Primes in a Range | Reusing a helper function | [Program 40.c](Program%2040.c) |
+| 41 | GCD & LCM | Euclid's algorithm | [Program 41.c](Program%2041.c) |
+
+### 7. Functions & Recursion
 
 | # | Program | What you learn | Source |
 |:--|:--------|:---------------|:-------|
 | 24 | Factorial Using Recursion | A function that calls itself | [Program 24.c](Program%2024.c) |
 | 25 | Prime Number Check | Writing your own function | [Program 25.c](Program%2025.c) |
 
-### 6. Arrays
+### 8. Arrays
 
 | # | Program | What you learn | Source |
 |:--|:--------|:---------------|:-------|
 | 26 | Largest & Smallest Element | Traversing an array | [Program 26.c](Program%2026.c) |
 | 27 | Reverse an Array | Swapping in place | [Program 27.c](Program%2027.c) |
 
-### 7. Strings
+### 9. 2D Arrays & Matrices
 
 | # | Program | What you learn | Source |
 |:--|:--------|:---------------|:-------|
-| 28 | Length, Vowels & Consonants | Working with strings without `strlen()` | [Program 28.c](Program%2028.c) |
-| 29 | Palindrome Check | Comparing characters from both ends | [Program 29.c](Program%2029.c) |
+| 44 | Matrix Addition | Working with 2D arrays | [Program 44.c](Program%2044.c) |
+| 45 | Transpose of a Matrix | Swapping rows and columns | [Program 45.c](Program%2045.c) |
 
-### 8. Pointers
+### 10. Sorting & Searching
+
+| # | Program | What you learn | Source |
+|:--|:--------|:---------------|:-------|
+| 42 | Bubble Sort | Comparing and swapping neighbours | [Program 42.c](Program%2042.c) |
+| 43 | Binary Search | Halving the search space | [Program 43.c](Program%2043.c) |
+
+### 11. Strings
+
+| # | Program | What you learn | Source |
+|:--|:--------|:---------------|:-------|
+| 28 | Length, Vowels & Consonants | Strings without `strlen()` | [Program 28.c](Program%2028.c) |
+| 29 | Palindrome Check | Comparing characters from both ends | [Program 29.c](Program%2029.c) |
+| 46 | Count Words | Counting without `strtok()` | [Program 46.c](Program%2046.c) |
+| 47 | Join Two Strings | Doing `strcat()` by hand | [Program 47.c](Program%2047.c) |
+
+### 12. Pointers & Dynamic Memory
 
 | # | Program | What you learn | Source |
 |:--|:--------|:---------------|:-------|
 | 30 | Swap Two Numbers | Pointers and pass-by-reference | [Program 30.c](Program%2030.c) |
+| 48 | `malloc()` & `free()` | Allocating memory at run time | [Program 48.c](Program%2048.c) |
 
-### 9. Structures & File Handling
+### 13. Structures & File Handling
 
 | # | Program | What you learn | Source |
 |:--|:--------|:---------------|:-------|
@@ -169,11 +205,15 @@ gcc -Wall -Wextra "Program 1.c" -o program1.exe
 ## 🧠 Suggested Learning Order
 
 - [x] Programs **1 – 10** — syntax, variables, input and output
-- [x] Programs **11 – 18** — formulas and every basic operator
-- [x] Programs **19 – 23, 33** — decisions, loops and patterns
-- [x] Programs **24 – 25** — writing your own functions
-- [x] Programs **26 – 29** — arrays and strings
-- [x] Programs **30 – 32** — pointers, structures and files
+- [x] Programs **11 – 18, 49** — formulas, every basic operator, bitwise math
+- [x] Programs **19 – 23, 33, 34 – 36** — decisions, `switch`, loops and patterns
+- [x] Programs **37 – 41** — the classic number practicals
+- [x] Programs **24, 25** — writing your own functions
+- [x] Programs **26, 27, 44, 45** — arrays and matrices
+- [x] Programs **42, 43** — sorting and searching
+- [x] Programs **28, 29, 46, 47** — strings
+- [x] Programs **30, 48** — pointers and dynamic memory
+- [x] Programs **31, 32** — structures and files
 
 ---
 
